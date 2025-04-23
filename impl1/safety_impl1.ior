@@ -1,0 +1,84 @@
+Loading design for application iotiming from file safety_impl1.ncd.
+Design name: top
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-2000HC
+Package:     TQFP100
+Performance: 5
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 34.4.
+Loading design for application iotiming from file safety_impl1.ncd.
+Design name: top
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-2000HC
+Package:     TQFP100
+Performance: 6
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 34.4.
+Loading design for application iotiming from file safety_impl1.ncd.
+Design name: top
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-2000HC
+Package:     TQFP100
+Performance: M
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 34.4.
+// Design: top
+// Package: TQFP100
+// ncd File: safety_impl1.ncd
+// Version: Diamond (64-bit) 3.13.0.56.2
+// Written on Wed Apr 16 13:54:39 2025
+// M: Minimum Performance Grade
+// iotiming Safety_impl1.ncd Safety_impl1.prf -gui -msgset C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/promote.xml
+
+I/O Timing Report (All units are in ns)
+
+Worst Case Results across Performance Grades (M, 6, 5, 4):
+
+// Input Setup and Hold Times
+
+Port  Clock     Edge  Setup Performance_Grade  Hold Performance_Grade
+----------------------------------------------------------------------
+rstn  clk_50mhz R     2.878      4      -0.040     M
+
+
+// Clock to Output Delay
+
+Port  Clock Edge  Max_Delay Performance_Grade  Min_Delay Performance_Grade
+------------------------------------------------------------------------
+(no clock to output min/max data)
+
+
+// Internal_Clock to Input
+
+Port  Internal_Clock                                             
+--------------------------------------------------------
+laser clk_div2                                                   
+pwr_g clk_div2                                                   
+rstn  reset_generator/clk_d2                                     
+scl   clk_div2                                                   
+sda   clk_div2                                                   
+syste clk_div2                                                   
+
+
+// Internal_Clock to Output
+
+Port                   Internal_Clock                                             
+--------------------------------------------------------
+TA_shutdown            clk_div2                                                   
+adc_convert            clk_div2                                                   
+adc_sck                clk_div2                                                   
+calibrated_led_n       clk_div2                                                   
+heartbeat_n            heart_beat/prescale[15]                                    
+laser_pwr_en1_n        clk_div2                                                   
+peak_error_led_n       clk_div2                                                   
+pulse_error_led_n      clk_div2                                                   
+rate_error_led_n       clk_div2                                                   
+sda                    i2c_slave_top/i2cslave_controller_top/filter_scl_inst/out_n
+spare1                 clk_div2                                                   
+spare2                 clk_div2                                                   
+test_fail_led_n        clk_div2                                                   
+test_pass_led_n        clk_div2                                                   
+watchdog_timeout_led_n clk_div2                                                   

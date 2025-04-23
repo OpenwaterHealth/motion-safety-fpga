@@ -1,0 +1,67 @@
+[ START MERGED ]
+rstn_N_14 rstn_c
+i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/sda_reg_N_351 i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/sda_reg
+[ END MERGED ]
+[ START CLIPPED ]
+VCC_net
+n17326
+heart_beat/count_919_985_add_4_9/S1
+heart_beat/count_919_985_add_4_9/CO
+heart_beat/prescale_920_add_4_1/S0
+heart_beat/prescale_920_add_4_1/CI
+heart_beat/prescale_920_add_4_17/S1
+heart_beat/prescale_920_add_4_17/CO
+heart_beat/count_919_985_add_4_1/S0
+heart_beat/count_919_985_add_4_1/CI
+limit_check/logic_check/add_11_1/S0
+limit_check/logic_check/add_11_1/CI
+limit_check/logic_check/add_11_33/S1
+limit_check/logic_check/add_11_33/CO
+i2c_slave_top/registers/add_279_9/S1
+i2c_slave_top/registers/add_279_9/CO
+i2c_slave_top/registers/add_279_1/S0
+i2c_slave_top/registers/add_279_1/CI
+adc_control/convert_count_922_add_4_1/S0
+adc_control/convert_count_922_add_4_1/CI
+adc_control/convert_count_922_add_4_9/S1
+adc_control/convert_count_922_add_4_9/CO
+[ END CLIPPED ]
+[ START DESIGN PREFS ]
+SCHEMATIC START ;
+# map:  version Diamond (64-bit) 3.13.0.56.2 -- WARNING: Map write only section -- Wed Apr 16 13:54:27 2025
+
+SYSCONFIG SDM_PORT=DISABLE SLAVE_SPI_PORT=DISABLE I2C_PORT=DISABLE MASTER_SPI_PORT=DISABLE COMPRESS_CONFIG=ON CONFIGURATION=CFG MY_ASSP=OFF ONE_TIME_PROGRAM=OFF CONFIG_SECURE=OFF MCCLK_FREQ=2.08 JTAG_PORT=ENABLE ENABLE_TRANSFR=DISABLE SHAREDEBRINIT=DISABLE MUX_CONFIGURATION_PORTS=DISABLE BACKGROUND_RECONFIG=OFF INBUF=ON ;
+LOCATE COMP "laser_pwr_en1_n" SITE "18" ;
+LOCATE COMP "sda" SITE "87" ;
+LOCATE COMP "scl" SITE "88" ;
+LOCATE COMP "watchdog_timeout_led_n" SITE "25" ;
+LOCATE COMP "calibrated_led_n" SITE "31" ;
+LOCATE COMP "peak_error_led_n" SITE "32" ;
+LOCATE COMP "pulse_error_led_n" SITE "34" ;
+LOCATE COMP "rate_error_led_n" SITE "35" ;
+LOCATE COMP "test_pass_led_n" SITE "36" ;
+LOCATE COMP "test_fail_led_n" SITE "37" ;
+LOCATE COMP "TA_shutdown" SITE "58" ;
+LOCATE COMP "adc_sck" SITE "99" ;
+LOCATE COMP "adc_convert" SITE "97" ;
+LOCATE COMP "temp_scl" SITE "78" ;
+LOCATE COMP "temp_sda" SITE "75" ;
+LOCATE COMP "prom_scl" SITE "52" ;
+LOCATE COMP "prom_sda" SITE "51" ;
+LOCATE COMP "heartbeat_n" SITE "49" ;
+LOCATE COMP "spare1" SITE "69" ;
+LOCATE COMP "spare2" SITE "71" ;
+LOCATE COMP "spare3" SITE "74" ;
+LOCATE COMP "spare4" SITE "70" ;
+LOCATE COMP "gpio1" SITE "29" ;
+LOCATE COMP "gpio2" SITE "27" ;
+LOCATE COMP "gpio3" SITE "28" ;
+LOCATE COMP "gpio4" SITE "30" ;
+LOCATE COMP "rstn" SITE "21" ;
+LOCATE COMP "system_reset_n" SITE "13" ;
+LOCATE COMP "clk_50mhz" SITE "1" ;
+LOCATE COMP "laser_pulse" SITE "7" ;
+LOCATE COMP "pwr_good" SITE "14" ;
+LOCATE COMP "adc_sdo" SITE "98" ;
+SCHEMATIC END ;
+[ END DESIGN PREFS ]

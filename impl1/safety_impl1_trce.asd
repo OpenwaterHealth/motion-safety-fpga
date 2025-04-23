@@ -1,0 +1,39 @@
+[ActiveSupport TRCE]
+; Setup Analysis
+Fmax_0 = 400.000 MHz (399.840 MHz);
+Fmax_1 = 1.190 MHz (84.218 MHz);
+Fmax_2 = 5.795 MHz (159.872 MHz);
+Fmax_3 = 73.665 MHz (306.185 MHz);
+Fmax_4 = 46.354 MHz (306.185 MHz);
+Fmax_5 = 82.136 MHz (306.185 MHz);
+Fmax_6 = 26.398 MHz (306.185 MHz);
+Fmax_7 = 41.408 MHz (306.185 MHz);
+Fmax_8 = 58.001 MHz (306.185 MHz);
+Fmax_9 = 58.531 MHz (306.185 MHz);
+Fmax_10 = 42.503 MHz (306.185 MHz);
+Fmax_11 = 15.398 MHz (306.185 MHz);
+Fmax_12 = 2.737 MHz (119.246 MHz);
+Fmax_13 = 144.823 MHz (399.840 MHz);
+Fmax_14 = 309.215 MHz (240.442 MHz);
+Failed = 13 (Total 15);
+Clock_ports = 2;
+Clock_nets = 15;
+; Hold Analysis
+Fmax_0 = 0.379 ns (0.000 ns);
+Fmax_1 = 0.304 ns (0.000 ns);
+Fmax_2 = -1.090 ns (0.000 ns);
+Fmax_3 = -1.221 ns (0.000 ns);
+Fmax_4 = -1.544 ns (0.000 ns);
+Fmax_5 = -1.405 ns (0.000 ns);
+Fmax_6 = -0.903 ns (0.000 ns);
+Fmax_7 = -1.063 ns (0.000 ns);
+Fmax_8 = -1.287 ns (0.000 ns);
+Fmax_9 = -1.480 ns (0.000 ns);
+Fmax_10 = -1.495 ns (0.000 ns);
+Fmax_11 = 0.262 ns (0.000 ns);
+Fmax_12 = -1.195 ns (0.000 ns);
+Fmax_13 = 0.118 ns (0.000 ns);
+Fmax_14 = 0.377 ns (0.000 ns);
+Failed = 10 (Total 15);
+Clock_ports = 2;
+Clock_nets = 15;

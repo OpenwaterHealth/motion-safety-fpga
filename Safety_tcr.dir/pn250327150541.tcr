@@ -1,0 +1,56 @@
+#Start recording tcl command: 3/27/2025 12:14:39
+#Project Location: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0; Project name: Safety
+prj_project open "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/Safety.ldf"
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_current_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_pulse_rate_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/logic_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/limit_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_check.v"
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/driver_control.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_control.v"
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/top.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/reset_generator.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/registers.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/i2cslave_controller_top.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/i2cslave_controller.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/i2c_slave_top.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/heart_beat.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/filter.v"
+file copy -force -- "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_check.v"
+prj_src exclude "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_check.v"
+prj_src enable "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_check.v"
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_check.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_check.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_current_check.v"
+prj_src add -exclude "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_pulse_rate_check.ldc"
+prj_src enable "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_pulse_rate_check.ldc"
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_pulse_rate_check.ldc"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_pulse_rate_check.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/logic_check.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/reset_generator.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/registers.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2c_slave_top.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/heart_beat.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/filter.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_control.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/top_tb.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/tb_defines.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_master.v"
+prj_src add -exclude "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_slave_tb.ldc"
+prj_src enable "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_slave_tb.ldc"
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_slave_tb.ldc"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_slave_tb.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_slave_top.v"
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_slave_top.v"
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_project save
+prj_project close
+#Stop recording: 3/27/2025 15:05:41

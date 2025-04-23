@@ -1,0 +1,191 @@
+<HTML>
+<HEAD><TITLE>Lattice TCL Log</TITLE>
+<STYLE TYPE="text/css">
+<!--
+ body,pre{    font-family:'Courier New', monospace;    color: #000000;    font-size:88%;    background-color: #ffffff;}h1 {    font-weight: bold;    margin-top: 24px;    margin-bottom: 10px;    border-bottom: 3px solid #000;    font-size: 1em;}h2 {    font-weight: bold;    margin-top: 18px;    margin-bottom: 5px;    font-size: 0.90em;}h3 {    font-weight: bold;    margin-top: 12px;    margin-bottom: 5px;    font-size: 0.80em;}p {    font-size:78%;}P.Table {    margin-top: 4px;    margin-bottom: 4px;    margin-right: 4px;    margin-left: 4px;}table{    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    border-collapse: collapse;}th {    font-weight:bold;    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    text-align:left;    font-size:78%;}td {    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    font-size:78%;}a {    color:#013C9A;    text-decoration:none;}a:visited {    color:#013C9A;}a:hover, a:active {    text-decoration:underline;    color:#5BAFD4;}.pass{background-color: #00ff00;}.fail{background-color: #ff0000;}.comment{    font-size: 90%;    font-style: italic;}
+-->
+</STYLE>
+</HEAD>
+<PRE><A name="pn250327121428"></A><B><U><big>pn250327121428</big></U></B>
+#Start recording tcl command: 3/27/2025 11:55:23
+#Project Location: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0; Project name: Safety
+prj_project new -name "Safety" -impl "impl1" -dev LCMXO2-2000HC-5TG100C -synthesis "lse"
+prj_project save
+pgr_project close
+file copy -force -- "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/reset_generator.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/registers.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source"
+file copy -force -- "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2c_slave_top.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/heart_beat.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/filter.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/driver_control.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_control.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/top.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/reset_generator.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/registers.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/i2cslave_controller_top.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/i2cslave_controller.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/i2c_slave_top.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/heart_beat.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/filter.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/driver_control.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_control.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/limit_check.v"
+prj_src add -exclude "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/logic_check.ldc"
+prj_src enable "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/logic_check.ldc"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/logic_check.v"
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/logic_check.ldc"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/adc_check.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/adc_current_check.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/adc_pulse_rate_check.v"
+file copy -force -- "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_current_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_pulse_rate_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/logic_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/limit_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_current_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_pulse_rate_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/logic_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/limit_check.v"
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/logic_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/adc_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/adc_current_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/adc_pulse_rate_check.v"
+file copy -force -- "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_current_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_pulse_rate_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/limit_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/logic_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_current_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_pulse_rate_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/limit_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/logic_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_check.v"
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_check.v"
+file copy -force -- "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_check.v"
+prj_project save
+prj_project close
+#Stop recording: 3/27/2025 12:14:28
+
+
+
+<A name="pn250327150541"></A><B><U><big>pn250327150541</big></U></B>
+#Start recording tcl command: 3/27/2025 12:14:39
+#Project Location: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0; Project name: Safety
+prj_project open "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/Safety.ldf"
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_current_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_pulse_rate_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/logic_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/limit_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_check.v"
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/driver_control.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_control.v"
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/top.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/reset_generator.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/registers.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/i2cslave_controller_top.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/i2cslave_controller.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/i2c_slave_top.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/heart_beat.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/filter.v"
+file copy -force -- "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_check.v" "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_check.v"
+prj_src exclude "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_check.v"
+prj_src enable "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_check.v"
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/impl1/source/adc_check.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_check.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_current_check.v"
+prj_src add -exclude "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_pulse_rate_check.ldc"
+prj_src enable "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_pulse_rate_check.ldc"
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_pulse_rate_check.ldc"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_pulse_rate_check.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/logic_check.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/reset_generator.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/registers.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2c_slave_top.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/heart_beat.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/filter.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_control.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/top_tb.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/tb_defines.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_master.v"
+prj_src add -exclude "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_slave_tb.ldc"
+prj_src enable "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_slave_tb.ldc"
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_slave_tb.ldc"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_slave_tb.v"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_slave_top.v"
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_slave_top.v"
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_project save
+prj_project close
+#Stop recording: 3/27/2025 15:05:41
+
+
+
+<A name="pn250328145100"></A><B><U><big>pn250328145100</big></U></B>
+#Start recording tcl command: 3/27/2025 20:40:34
+#Project Location: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_1; Project name: Safety
+prj_project open "C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_1/Safety.ldf"
+#Stop recording: 3/28/2025 14:51:00
+
+
+
+<A name="pn250421123006"></A><B><U><big>pn250421123006</big></U></B>
+#Start recording tcl command: 4/16/2025 13:35:06
+#Project Location: C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1; Project name: Safety
+prj_project open "C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/Safety.ldf"
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/clock_generator.v"
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+pgr_project save "C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/impl1/impl1.xcf"
+prj_src add -exclude "C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/impl1/impl1.xcf"
+prj_src enable "C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/impl1/impl1.xcf"
+pgr_project save "C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/impl1/impl1.xcf"
+prj_dev set -part LCMXO2-2000HC-4TG100C
+pgr_project close
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+pgr_project open "C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/impl1/impl1.xcf"
+pgr_program run
+pgr_project save "C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/impl1/impl1.xcf"
+prj_src add "C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/clock_generator.v"
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+prj_src remove "C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/clock_generator.v"
+pgr_project save "C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/impl1/impl1.xcf"
+prj_run Export -impl impl1 -task Jedecgen -forceAll
+pgr_program run
+pgr_project save "C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/impl1/impl1.xcf"
+pgr_program run
+prj_project save
+prj_project close
+#Stop recording: 4/21/2025 12:30:06
+
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</PRE></FONT>
+</BODY>
+</HTML>

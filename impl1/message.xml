@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliMessageLog>
+    <Task name="LSE_Compile">
+        <Message>
+            <ID>35002000</ID>
+            <Severity>Info</Severity>
+        </Message>
+        <Message>
+            <ID>35001781</ID>
+            <Severity>Info</Severity>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/top_tb.v(2): </Dynamic>
+            <Dynamic>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/tb_defines.v</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/top_tb.v</Navigation>
+            <Navigation>2</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/i2c_master.v(51): </Dynamic>
+            <Dynamic>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/tb_defines.v</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/i2c_master.v</Navigation>
+            <Navigation>51</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/top_tb.v(4): </Dynamic>
+            <Dynamic>top_tb</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/top_tb.v</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35901220</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/top_tb.v(56): </Dynamic>
+            <Dynamic>rst</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/top_tb.v</Navigation>
+            <Navigation>56</Navigation>
+        </Message>
+        <Message>
+            <ID>35901220</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/top_tb.v(84): </Dynamic>
+            <Dynamic>trigger</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/top_tb.v</Navigation>
+            <Navigation>84</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/i2c_master.v(53): </Dynamic>
+            <Dynamic>i2c_master</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/i2c_master.v</Navigation>
+            <Navigation>53</Navigation>
+        </Message>
+        <Message>
+            <ID>35901142</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/i2c_master.v(277): </Dynamic>
+            <Dynamic>display</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/i2c_master.v</Navigation>
+            <Navigation>277</Navigation>
+        </Message>
+        <Message>
+            <ID>35901142</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/i2c_master.v(278): </Dynamic>
+            <Dynamic>display</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/i2c_master.v</Navigation>
+            <Navigation>278</Navigation>
+        </Message>
+        <Message>
+            <ID>35901279</ID>
+            <Severity>Error</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/i2c_master.v(433): </Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/safety/rev_0/testbench/i2c_master.v</Navigation>
+            <Navigation>433</Navigation>
+        </Message>
+    </Task>
+    <Task name="MapVerilogSimFile">
+        <Message>
+            <ID>35400250</ID>
+            <Severity>Info</Severity>
+            <Dynamic>0</Dynamic>
+        </Message>
+    </Task>
+    <Task name="Lattice_Synthesis">
+        <Message>
+            <ID>35002000</ID>
+            <Severity>Info</Severity>
+        </Message>
+        <Message>
+            <ID>35001781</ID>
+            <Severity>Info</Severity>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/testbench/top_tb.v(2): </Dynamic>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/testbench/tb_defines.v</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/testbench/top_tb.v</Navigation>
+            <Navigation>2</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/testbench/i2c_master.v(51): </Dynamic>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/testbench/tb_defines.v</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/testbench/i2c_master.v</Navigation>
+            <Navigation>51</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(3): </Dynamic>
+            <Dynamic>top</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v</Navigation>
+            <Navigation>3</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(97): </Dynamic>
+            <Dynamic>4</Dynamic>
+            <Dynamic>1</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v</Navigation>
+            <Navigation>97</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(99): </Dynamic>
+            <Dynamic>5</Dynamic>
+            <Dynamic>1</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v</Navigation>
+            <Navigation>99</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/reset_generator.v(21): </Dynamic>
+            <Dynamic>reset_generator</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/reset_generator.v</Navigation>
+            <Navigation>21</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/clock_generator.v(21): </Dynamic>
+            <Dynamic>clock_generator</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/clock_generator.v</Navigation>
+            <Navigation>21</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/heart_beat.v(21): </Dynamic>
+            <Dynamic>heart_beat</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/heart_beat.v</Navigation>
+            <Navigation>21</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/heart_beat.v(40): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>16</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/heart_beat.v</Navigation>
+            <Navigation>40</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/heart_beat.v(49): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>16</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/heart_beat.v</Navigation>
+            <Navigation>49</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2c_slave_top.v(20): </Dynamic>
+            <Dynamic>i2c_slave_top</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2c_slave_top.v</Navigation>
+            <Navigation>20</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller_top.v(53): </Dynamic>
+            <Dynamic>i2cslave_controller_top</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller_top.v</Navigation>
+            <Navigation>53</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/filter.v(39): </Dynamic>
+            <Dynamic>filter</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/filter.v</Navigation>
+            <Navigation>39</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(54): </Dynamic>
+            <Dynamic>i2cslave_controller</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v</Navigation>
+            <Navigation>54</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(408): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>4</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v</Navigation>
+            <Navigation>408</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(433): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>4</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v</Navigation>
+            <Navigation>433</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(454): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>4</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v</Navigation>
+            <Navigation>454</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(495): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>4</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v</Navigation>
+            <Navigation>495</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(545): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>4</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v</Navigation>
+            <Navigation>545</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(582): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>4</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v</Navigation>
+            <Navigation>582</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller_top.v(180): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>4</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller_top.v</Navigation>
+            <Navigation>180</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v(3): </Dynamic>
+            <Dynamic>registers</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v</Navigation>
+            <Navigation>3</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v(91): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>4</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v</Navigation>
+            <Navigation>91</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v(237): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>8</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v</Navigation>
+            <Navigation>237</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v(242): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>8</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v</Navigation>
+            <Navigation>242</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v(259): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>12</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v</Navigation>
+            <Navigation>259</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v(284): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>4</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v</Navigation>
+            <Navigation>284</Navigation>
+        </Message>
+        <Message>
+            <ID>35901330</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(146): </Dynamic>
+            <Dynamic>1</Dynamic>
+            <Dynamic>8</Dynamic>
+            <Dynamic>monitor_status</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v</Navigation>
+            <Navigation>146</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/limit_check.v(2): </Dynamic>
+            <Dynamic>limit_check</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/limit_check.v</Navigation>
+            <Navigation>2</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/logic_check.v(21): </Dynamic>
+            <Dynamic>logic_check</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/logic_check.v</Navigation>
+            <Navigation>21</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_check.v(2): </Dynamic>
+            <Dynamic>adc_check</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_check.v</Navigation>
+            <Navigation>2</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_current_check.v(21): </Dynamic>
+            <Dynamic>adc_current_check</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_current_check.v</Navigation>
+            <Navigation>21</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_current_check.v(54): </Dynamic>
+            <Dynamic>16</Dynamic>
+            <Dynamic>1</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_current_check.v</Navigation>
+            <Navigation>54</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_pulse_rate_check.v(21): </Dynamic>
+            <Dynamic>adc_pulse_rate_check</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_pulse_rate_check.v</Navigation>
+            <Navigation>21</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_pulse_rate_check.v(66): </Dynamic>
+            <Dynamic>16</Dynamic>
+            <Dynamic>1</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_pulse_rate_check.v</Navigation>
+            <Navigation>66</Navigation>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_check.v(31): </Dynamic>
+            <Dynamic>bypass</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_check.v</Navigation>
+            <Navigation>31</Navigation>
+        </Message>
+        <Message>
+            <ID>35901330</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(172): </Dynamic>
+            <Dynamic>1</Dynamic>
+            <Dynamic>16</Dynamic>
+            <Dynamic>adc_data</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v</Navigation>
+            <Navigation>172</Navigation>
+        </Message>
+        <Message>
+            <ID>35901330</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(179): </Dynamic>
+            <Dynamic>1</Dynamic>
+            <Dynamic>16</Dynamic>
+            <Dynamic>adc_pulse_current_limit</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v</Navigation>
+            <Navigation>179</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_control.v(21): </Dynamic>
+            <Dynamic>adc_control</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_control.v</Navigation>
+            <Navigation>21</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_control.v(82): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>8</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_control.v</Navigation>
+            <Navigation>82</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_control.v(95): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>4</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_control.v</Navigation>
+            <Navigation>95</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_control.v(120): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>8</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_control.v</Navigation>
+            <Navigation>120</Navigation>
+        </Message>
+        <Message>
+            <ID>35901330</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(207): </Dynamic>
+            <Dynamic>1</Dynamic>
+            <Dynamic>16</Dynamic>
+            <Dynamic>adc_data_value</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v</Navigation>
+            <Navigation>207</Navigation>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(52): </Dynamic>
+            <Dynamic>adc_voltage_data[15]</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v</Navigation>
+            <Navigation>52</Navigation>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(54): </Dynamic>
+            <Dynamic>status[0]</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v</Navigation>
+            <Navigation>54</Navigation>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(146): </Dynamic>
+            <Dynamic>monitor_status</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v</Navigation>
+            <Navigation>146</Navigation>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(172): </Dynamic>
+            <Dynamic>adc_data</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v</Navigation>
+            <Navigation>172</Navigation>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(179): </Dynamic>
+            <Dynamic>pulse_current_limit</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v</Navigation>
+            <Navigation>179</Navigation>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_check.v(31): </Dynamic>
+            <Dynamic>bypass</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_check.v</Navigation>
+            <Navigation>31</Navigation>
+        </Message>
+        <Message>
+            <ID>35935013</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_pulse_rate_check.v(129): </Dynamic>
+            <Dynamic>\limit_check/adc_check/adc_pulse_rate_check/adc_rate_lower_limit_fail_52</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_pulse_rate_check.v</Navigation>
+            <Navigation>129</Navigation>
+        </Message>
+        <Message>
+            <ID>35935013</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/logic_check.v(161): </Dynamic>
+            <Dynamic>\limit_check/logic_check/rate_limit_window_123</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/logic_check.v</Navigation>
+            <Navigation>161</Navigation>
+        </Message>
+        <Message>
+            <ID>35935013</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_current_check.v(80): </Dynamic>
+            <Dynamic>\limit_check/adc_check/adc_current_check/adc_data_d1_34</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_current_check.v</Navigation>
+            <Navigation>80</Navigation>
+        </Message>
+        <Message>
+            <ID>35935013</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(313): </Dynamic>
+            <Dynamic>\i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/addr_10bit_en_reg_i_754</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v</Navigation>
+            <Navigation>313</Navigation>
+        </Message>
+        <Message>
+            <ID>35935013</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(323): </Dynamic>
+            <Dynamic>\i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/hs_mode_reg_i_755</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v</Navigation>
+            <Navigation>323</Navigation>
+        </Message>
+        <Message>
+            <ID>35935013</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(735): </Dynamic>
+            <Dynamic>\i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/addr_ack2_i_773</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v</Navigation>
+            <Navigation>735</Navigation>
+        </Message>
+        <Message>
+            <ID>35935013</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(745): </Dynamic>
+            <Dynamic>\i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/master_code_not_ack_reg_i_776</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v</Navigation>
+            <Navigation>745</Navigation>
+        </Message>
+        <Message>
+            <ID>35001774</ID>
+            <Severity>Info</Severity>
+            <Dynamic>\limit_check/logic_check/state</Dynamic>
+            <Dynamic>one-hot</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001774</ID>
+            <Severity>Info</Severity>
+            <Dynamic>\i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/next_state_i</Dynamic>
+            <Dynamic>one-hot</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>3</Dynamic>
+            <Dynamic>\i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/next_state_i_FSM</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>7</Dynamic>
+            <Dynamic>\i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/next_state_i_FSM</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935013</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(618): </Dynamic>
+            <Dynamic>\i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/next_state_i_FSM_i2</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v</Navigation>
+            <Navigation>618</Navigation>
+        </Message>
+        <Message>
+            <ID>35935013</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(1087): </Dynamic>
+            <Dynamic>\i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/timeout_state_i__i1</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v</Navigation>
+            <Navigation>1087</Navigation>
+        </Message>
+        <Message>
+            <ID>35935013</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(1097): </Dynamic>
+            <Dynamic>\i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/reset_fsm_i_804</Dynamic>
+            <Navigation>c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v</Navigation>
+            <Navigation>1097</Navigation>
+        </Message>
+        <Message>
+            <ID>35001611</ID>
+            <Severity>Warning</Severity>
+        </Message>
+    </Task>
+    <Task name="PAR">
+        <Message>
+            <ID>61001101</ID>
+            <Severity>Warning</Severity>
+        </Message>
+        <Message>
+            <ID>66011008</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>
+   Signal=clk_50mhz_c loads=2 clock_loads=2
+   Signal=i2c_slave_top/addr_i_7__N_702 loads=2 clock_loads=1
+   Signal=i2c_slave_top/addr_i_7__N_703 loads=2 clock_loads=1
+   Signal=i2c_slave_top/addr_i_7__N_701 loads=2 clock_loads=1
+   Signal=i2c_slave_top/addr_i_7__N_700 loads=2 clock_loads=1
+   Signal=i2c_slave_top/addr_i_7   ....   _loads=1
+   Signal=i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/sda_reg loads=28 clock_loads=2
+   Signal=reset_generator/clk_d2 loads=4 clock_loads=3</Dynamic>
+        </Message>
+        <Message>
+            <ID>66011008</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>
+   Signal=clk_50mhz_c loads=2 clock_loads=2
+   Signal=i2c_slave_top/addr_i_7__N_702 loads=2 clock_loads=1
+   Signal=i2c_slave_top/addr_i_7__N_703 loads=2 clock_loads=1
+   Signal=i2c_slave_top/addr_i_7__N_701 loads=2 clock_loads=1
+   Signal=i2c_slave_top/addr_i_7__N_700 loads=2 clock_loads=1
+   Signal=i2c_slave_top/addr_i_7   ....   _loads=1
+   Signal=i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/sda_reg loads=28 clock_loads=2
+   Signal=reset_generator/clk_d2 loads=4 clock_loads=3</Dynamic>
+        </Message>
+    </Task>
+    <Task name="Jedecgen">
+        <Message>
+            <ID>1009992</ID>
+            <Severity>Info</Severity>
+            <Dynamic> SW_XO3D_SECURITY_ENCRYPTION *NOT* controlled by xo2c00.acd ###</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009992</ID>
+            <Severity>Info</Severity>
+            <Dynamic> SW_XO3D_SECURITY_ENCRYPTION license_securityIP OK</Dynamic>
+        </Message>
+    </Task>
+</BaliMessageLog>

@@ -1,0 +1,378 @@
+synthesis:  version Diamond (64-bit) 3.13.0.56.2
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2023 Lattice Semiconductor Corporation,  All rights reserved.
+Wed Apr 16 13:54:24 2025
+
+
+Command Line:  synthesis -f Safety_impl1_lattice.synproj -gui -msgset C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/promote.xml 
+
+Synthesis options:
+The -a option is MachXO2.
+The -s option is 4.
+The -t option is TQFP100.
+The -d option is LCMXO2-2000HC.
+Using package TQFP100.
+Using performance grade 4.
+                                                          
+
+##########################################################
+
+### Lattice Family : MachXO2
+
+### Device  : LCMXO2-2000HC
+
+### Package : TQFP100
+
+### Speed   : 4
+
+##########################################################
+
+                                                          
+
+INFO - synthesis: User-Selected Strategy Settings
+Optimization goal = Balanced
+Top-level module name = top.
+Target frequency = 200.000000 MHz.
+Maximum fanout = 1000.
+Timing path count = 3
+BRAM utilization = 100.000000 %
+DSP usage = true
+DSP utilization = 100.000000 %
+fsm_encoding_style = auto
+resolve_mixed_drivers = 0
+fix_gated_clocks = 1
+
+Mux style = Auto
+Use Carry Chain = true
+carry_chain_length = 0
+Loop Limit = 1950.
+Use IO Insertion = TRUE
+Use IO Reg = AUTO
+
+Resource Sharing = TRUE
+Propagate Constants = TRUE
+Remove Duplicate Registers = TRUE
+force_gsr = auto
+ROM style = auto
+RAM style = auto
+The -comp option is FALSE.
+The -syn option is FALSE.
+-p C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1 (searchpath added)
+-p C:/lscc/diamond/3.13/ispfpga/xo2c00/data (searchpath added)
+-p C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/impl1 (searchpath added)
+-p C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1 (searchpath added)
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/top.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/limit_check.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/registers.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/heart_beat.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/reset_generator.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/adc_control.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/filter.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/i2c_slave_top.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/i2cslave_controller_top.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/i2cslave_controller.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/adc_check.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/adc_current_check.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/adc_pulse_rate_check.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/logic_check.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/src/clock_generator.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/TestBench/top_tb.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/TestBench/tb_defines.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/TestBench/i2c_master.v
+Verilog design file = C:/Project/Working/FPGA/HOME/Lattice/4162025/Safety/Rev_1/TestBench/i2c_slave_tb.v
+NGD file = Safety_impl1.ngd
+-sdc option: SDC file input not used.
+-lpf option: Output file option is ON.
+Hardtimer checking is enabled (default). The -dt option is not used.
+The -r option is OFF. [ Remove LOC Properties is OFF. ]
+Technology check ok...
+
+Analyzing Verilog file C:/lscc/diamond/3.13/ispfpga/userware/NT/SYNTHESIS_HEADERS/machxo2.v. VERI-1482
+Compile design.
+Compile Design Begin
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/limit_check.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/heart_beat.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/reset_generator.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_control.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/filter.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2c_slave_top.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller_top.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_check.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_current_check.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_pulse_rate_check.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/logic_check.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/clock_generator.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/testbench/top_tb.v. VERI-1482
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/testbench/top_tb.v(2): analyzing included file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/testbench/tb_defines.v. VERI-1328
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/testbench/tb_defines.v. VERI-1482
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/testbench/i2c_master.v. VERI-1482
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/testbench/i2c_master.v(51): analyzing included file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/testbench/tb_defines.v. VERI-1328
+Analyzing Verilog file c:/project/working/fpga/home/lattice/4162025/safety/rev_1/testbench/i2c_slave_tb.v. VERI-1482
+Analyzing Verilog file C:/lscc/diamond/3.13/ispfpga/userware/NT/SYNTHESIS_HEADERS/machxo2.v. VERI-1482
+Top module name (Verilog): top
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(3): compiling module top. VERI-1018
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(97): expression size 4 truncated to fit in target size 1. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(99): expression size 5 truncated to fit in target size 1. VERI-1209
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/reset_generator.v(21): compiling module reset_generator. VERI-1018
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/clock_generator.v(21): compiling module clock_generator. VERI-1018
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/heart_beat.v(21): compiling module heart_beat. VERI-1018
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/heart_beat.v(40): expression size 32 truncated to fit in target size 16. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/heart_beat.v(49): expression size 32 truncated to fit in target size 16. VERI-1209
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2c_slave_top.v(20): compiling module i2c_slave_top. VERI-1018
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller_top.v(53): compiling module i2cslave_controller_top. VERI-1018
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/filter.v(39): compiling module filter. VERI-1018
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(54): compiling module i2cslave_controller. VERI-1018
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(408): expression size 32 truncated to fit in target size 4. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(433): expression size 32 truncated to fit in target size 4. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(454): expression size 32 truncated to fit in target size 4. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(495): expression size 32 truncated to fit in target size 4. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(545): expression size 32 truncated to fit in target size 4. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(582): expression size 32 truncated to fit in target size 4. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller_top.v(180): expression size 32 truncated to fit in target size 4. VERI-1209
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v(3): compiling module registers. VERI-1018
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v(91): expression size 32 truncated to fit in target size 4. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v(237): expression size 32 truncated to fit in target size 8. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v(242): expression size 32 truncated to fit in target size 8. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v(259): expression size 32 truncated to fit in target size 12. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/registers.v(284): expression size 32 truncated to fit in target size 4. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(146): actual bit length 1 differs from formal bit length 8 for port monitor_status. VERI-1330
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/limit_check.v(2): compiling module limit_check. VERI-1018
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/logic_check.v(21): compiling module logic_check. VERI-1018
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_check.v(2): compiling module adc_check. VERI-1018
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_current_check.v(21): compiling module adc_current_check. VERI-1018
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_current_check.v(54): expression size 16 truncated to fit in target size 1. VERI-1209
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_pulse_rate_check.v(21): compiling module adc_pulse_rate_check. VERI-1018
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_pulse_rate_check.v(66): expression size 16 truncated to fit in target size 1. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_check.v(31): net bypass does not have a driver. VDB-1002
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(172): actual bit length 1 differs from formal bit length 16 for port adc_data. VERI-1330
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(179): actual bit length 1 differs from formal bit length 16 for port adc_pulse_current_limit. VERI-1330
+INFO - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_control.v(21): compiling module adc_control. VERI-1018
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_control.v(82): expression size 32 truncated to fit in target size 8. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_control.v(95): expression size 32 truncated to fit in target size 4. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_control.v(120): expression size 32 truncated to fit in target size 8. VERI-1209
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(207): actual bit length 1 differs from formal bit length 16 for port adc_data_value. VERI-1330
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(52): net adc_voltage_data[15] does not have a driver. VDB-1002
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(54): net status[0] does not have a driver. VDB-1002
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(146): net monitor_status does not have a driver. VDB-1002
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(172): net adc_data does not have a driver. VDB-1002
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/top.v(179): net pulse_current_limit does not have a driver. VDB-1002
+Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/xo2c00a/data/xo2alib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/xo2c00/data/xo2clib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/mg5g00/data/mg5glib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/or5g00/data/orc5glib.ngl'...
+Loading device for application map from file 'xo2c2000.nph' in environment: C:/lscc/diamond/3.13/ispfpga.
+Package Status:                     Final          Version 1.44.
+Top-level module name = top.
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_check.v(31): net bypass does not have a driver. VDB-1002
+######## Converting I/O port temp_scl to output.
+######## Converting I/O port temp_sda to output.
+######## Converting I/O port prom_scl to output.
+######## Converting I/O port prom_sda to output.
+######## Converting I/O port spare1 to output.
+######## Converting I/O port spare2 to output.
+######## Converting I/O port spare3 to output.
+######## Converting I/O port spare4 to output.
+######## Converting I/O port gpio1 to output.
+######## Converting I/O port gpio2 to output.
+######## Converting I/O port gpio3 to output.
+######## Converting I/O port gpio4 to output.
+######## Missing driver on net adc_voltage_data[15]. Patching with GND.
+######## Missing driver on net adc_voltage_data[14]. Patching with GND.
+######## Missing driver on net adc_voltage_data[13]. Patching with GND.
+######## Missing driver on net adc_voltage_data[12]. Patching with GND.
+######## Missing driver on net adc_voltage_data[11]. Patching with GND.
+######## Missing driver on net adc_voltage_data[10]. Patching with GND.
+######## Missing driver on net adc_voltage_data[9]. Patching with GND.
+######## Missing driver on net adc_voltage_data[8]. Patching with GND.
+######## Missing driver on net adc_voltage_data[7]. Patching with GND.
+######## Missing driver on net adc_voltage_data[6]. Patching with GND.
+######## Missing driver on net adc_voltage_data[5]. Patching with GND.
+######## Missing driver on net adc_voltage_data[4]. Patching with GND.
+######## Missing driver on net adc_voltage_data[3]. Patching with GND.
+######## Missing driver on net adc_voltage_data[2]. Patching with GND.
+######## Missing driver on net adc_voltage_data[1]. Patching with GND.
+######## Missing driver on net adc_voltage_data[0]. Patching with GND.
+######## Missing driver on net status[0]. Patching with GND.
+######## Missing driver on net monitor_status. Patching with GND.
+######## Missing driver on net adc_data. Patching with GND.
+######## Missing driver on net pulse_current_limit. Patching with GND.
+######## Missing driver on net \limit_check/adc_check/bypass. Patching with GND.
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_pulse_rate_check.v(129): Register \limit_check/adc_check/adc_pulse_rate_check/adc_rate_lower_limit_fail_52 is stuck at Zero. VDB-5013
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/logic_check.v(161): Register \limit_check/logic_check/rate_limit_window_123 is stuck at Zero. VDB-5013
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/adc_current_check.v(80): Register \limit_check/adc_check/adc_current_check/adc_data_d1_34 is stuck at Zero. VDB-5013
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(313): Register \i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/addr_10bit_en_reg_i_754 is stuck at Zero. VDB-5013
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(323): Register \i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/hs_mode_reg_i_755 is stuck at Zero. VDB-5013
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(735): Register \i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/addr_ack2_i_773 is stuck at Zero. VDB-5013
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(745): Register \i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/master_code_not_ack_reg_i_776 is stuck at Zero. VDB-5013
+INFO - synthesis: Extracted state machine for register '\limit_check/logic_check/state' with one-hot encoding
+original encoding -> new encoding (one-hot encoding)
+
+ 0000 -> 0001
+
+ 0001 -> 0010
+
+ 0010 -> 0100
+
+ 0100 -> 1000
+
+INFO - synthesis: Extracted state machine for register '\i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/next_state_i' with one-hot encoding
+original encoding -> new encoding (one-hot encoding)
+
+ 0000 -> 00000001
+
+ 0001 -> 00000010
+
+ 0010 -> 00000100
+
+ 0011 -> 00001000
+
+ 0100 -> 00010000
+
+ 0101 -> 00100000
+
+ 0110 -> 01000000
+
+ 0111 -> 10000000
+
+
+
+
+WARNING - synthesis: Bit 3 of Register \i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/next_state_i_FSM is stuck at Zero
+WARNING - synthesis: Bit 7 of Register \i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/next_state_i_FSM is stuck at Zero
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(618): Register \i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/next_state_i_FSM_i2 is stuck at Zero. VDB-5013
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(1087): Register \i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/timeout_state_i__i1 is stuck at Zero. VDB-5013
+WARNING - synthesis: c:/project/working/fpga/home/lattice/4162025/safety/rev_1/src/i2cslave_controller.v(1097): Register \i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/reset_fsm_i_804 is stuck at Zero. VDB-5013
+GSR instance connected to net reset_n.
+Applying 200.000000 MHz constraint to all clocks
+
+WARNING - synthesis: No user .sdc file.
+Results of NGD DRC are available in top_drc.log.
+Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/xo2c00a/data/xo2alib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/xo2c00/data/xo2clib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/mg5g00/data/mg5glib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/or5g00/data/orc5glib.ngl'...
+All blocks are expanded and NGD expansion is successful.
+Writing NGD file Safety_impl1.ngd.
+
+################### Begin Area Report (top)######################
+Number of register bits => 434 of 2352 (18 % )
+BB => 2
+CCU2D => 41
+FD1P3AX => 217
+FD1P3AY => 49
+FD1P3DX => 9
+FD1P3IX => 17
+FD1S1D => 8
+FD1S3AX => 83
+FD1S3AY => 3
+FD1S3BX => 10
+FD1S3DX => 19
+FD1S3IX => 19
+GSR => 1
+IB => 6
+INV => 3
+L6MUX21 => 33
+LUT4 => 882
+OB => 24
+PFUMX => 87
+################### End Area Report ##################
+
+################### Begin BlackBox Report ######################
+TSALL => 1
+################### End BlackBox Report ##################
+
+################### Begin Clock Report ######################
+Clock Nets
+Number of Clocks: 15
+  Net : clock_generator/clk_div2, loads : 355
+  Net : i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/sda_reg, loads : 28
+  Net : i2c_slave_top/registers/data_vld_dly, loads : 20
+  Net : i2c_slave_top/i2cslave_controller_top/filter_scl_inst/out_n, loads : 21
+  Net : heart_beat/prescale_15, loads : 9
+  Net : reset_generator/clk_d2, loads : 5
+  Net : i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/addr_i_7__N_699, loads : 2
+  Net : i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/addr_i_7__N_704, loads : 2
+  Net : i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/addr_i_7__N_703, loads : 2
+  Net : i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/addr_i_7__N_698, loads : 2
+  Net : i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/addr_i_7__N_702, loads : 2
+  Net : clk_50mhz_c, loads : 2
+  Net : i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/addr_i_7__N_701, loads : 2
+  Net : i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/addr_i_7__N_695, loads : 2
+  Net : i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/addr_i_7__N_700, loads : 2
+Clock Enable Nets
+Number of Clock Enables: 54
+Top 10 highest fanout Clock Enables:
+  Net : i2c_slave_top/registers/clk_div2_enable_59, loads : 8
+  Net : i2c_slave_top/registers/clk_div2_enable_74, loads : 8
+  Net : i2c_slave_top/registers/clk_div2_enable_51, loads : 8
+  Net : adc_control/clk_div2_enable_258, loads : 8
+  Net : i2c_slave_top/registers/clk_div2_enable_35, loads : 8
+  Net : i2c_slave_top/registers/clk_div2_enable_82, loads : 8
+  Net : i2c_slave_top/registers/clk_div2_enable_97, loads : 8
+  Net : i2c_slave_top/registers/clk_div2_enable_90, loads : 8
+  Net : i2c_slave_top/registers/clk_div2_enable_143, loads : 8
+  Net : i2c_slave_top/registers/clk_div2_enable_105, loads : 8
+Highest fanout non-clock nets
+Top 10 highest fanout non-clock nets:
+  Net : i2c_slave_top/registers/n16546, loads : 75
+  Net : i2c_slave_top/registers/n16435, loads : 60
+  Net : i2c_slave_top/registers/n16548, loads : 60
+  Net : i2c_slave_top/registers/n16559, loads : 56
+  Net : i2c_slave_top/registers/n16521, loads : 49
+  Net : limit_check/logic_check/n14579, loads : 32
+  Net : limit_check/logic_check/n12_adj_1721, loads : 31
+  Net : i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/count_i_0, loads : 30
+  Net : i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/count_i_1, loads : 30
+  Net : i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1/n16425, loads : 27
+################### End Clock Report ##################
+
+Timing Report Summary
+--------------
+--------------------------------------------------------------------------------
+Constraint                              |   Constraint|       Actual|Levels
+--------------------------------------------------------------------------------
+                                        |             |             |
+create_clock -period 5.000000 -name     |             |             |
+clk6 [get_nets clk_50mhz_c]             |  200.000 MHz|  365.631 MHz|     2  
+                                        |             |             |
+create_clock -period 5.000000 -name     |             |             |
+clk5 [get_nets \reset_generator/clk_d2] |  200.000 MHz|  159.337 MHz|     3 *
+                                        |             |             |
+create_clock -period 5.000000 -name     |             |             |
+clk4 [get_nets                          |             |             |
+\i2c_slave_top/i2cslave_controller_top/i|             |             |
+2cslave_controller_u1/sda_reg]          |  200.000 MHz|  156.421 MHz|     3 *
+                                        |             |             |
+create_clock -period 5.000000 -name     |             |             |
+clk3 [get_nets                          |             |             |
+\i2c_slave_top/registers/data_vld_dly]  |  200.000 MHz|  100.817 MHz|     9 *
+                                        |             |             |
+create_clock -period 5.000000 -name     |             |             |
+clk2 [get_nets clk_div2]                |  200.000 MHz|   46.243 MHz|    14 *
+                                        |             |             |
+create_clock -period 5.000000 -name     |             |             |
+clk1 [get_nets                          |             |             |
+\i2c_slave_top/i2cslave_controller_top/o|             |             |
+ut_n]                                   |  200.000 MHz|   52.955 MHz|     5 *
+                                        |             |             |
+create_clock -period 5.000000 -name     |             |             |
+clk0 [get_nets \heart_beat/prescale[15]]|  200.000 MHz|  224.115 MHz|     6  
+                                        |             |             |
+--------------------------------------------------------------------------------
+
+
+5 constraints not met.
+
+
+Peak Memory Usage: 84.137  MB
+
+--------------------------------------------------------------
+Elapsed CPU time for LSE flow : 2.766  secs
+--------------------------------------------------------------

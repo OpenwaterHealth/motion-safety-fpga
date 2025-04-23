@@ -1,0 +1,40 @@
+NOTE Copyright (C), 1992-2010, Lattice Semiconductor Corporation *
+NOTE All Rights Reserved *
+NOTE DATE CREATED: Wed Apr 16 13:54:42 2025 *
+NOTE DESIGN NAME: top *
+NOTE DEVICE NAME: LCMXO2-2000HC-4TQFP100 *
+NOTE PIN ASSIGNMENTS *
+NOTE PINS laser_pwr_en1_n : 18 : out *
+NOTE PINS sda : 87 : inout *
+NOTE PINS scl : 88 : inout *
+NOTE PINS watchdog_timeout_led_n : 25 : out *
+NOTE PINS calibrated_led_n : 31 : out *
+NOTE PINS peak_error_led_n : 32 : out *
+NOTE PINS pulse_error_led_n : 34 : out *
+NOTE PINS rate_error_led_n : 35 : out *
+NOTE PINS test_pass_led_n : 36 : out *
+NOTE PINS test_fail_led_n : 37 : out *
+NOTE PINS TA_shutdown : 58 : out *
+NOTE PINS adc_sck : 99 : out *
+NOTE PINS adc_convert : 97 : out *
+NOTE PINS temp_scl : 78 : out *
+NOTE PINS temp_sda : 75 : out *
+NOTE PINS prom_scl : 52 : out *
+NOTE PINS prom_sda : 51 : out *
+NOTE PINS heartbeat_n : 49 : out *
+NOTE PINS spare1 : 69 : out *
+NOTE PINS spare2 : 71 : out *
+NOTE PINS spare3 : 74 : out *
+NOTE PINS spare4 : 70 : out *
+NOTE PINS gpio1 : 29 : out *
+NOTE PINS gpio2 : 27 : out *
+NOTE PINS gpio3 : 28 : out *
+NOTE PINS gpio4 : 30 : out *
+NOTE PINS rstn : 21 : in *
+NOTE PINS system_reset_n : 13 : in *
+NOTE PINS clk_50mhz : 1 : in *
+NOTE PINS laser_pulse : 7 : in *
+NOTE PINS pwr_good : 14 : in *
+NOTE PINS adc_sdo : 98 : in *
+NOTE CONFIGURATION MODE: NONE *
+NOTE COMPRESSION: on *
