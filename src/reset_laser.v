@@ -18,28 +18,31 @@
 
 //`timescale <time_units> / <precision>
 
-module clock_generator( 
+module reset_laser( 
     input  rstn,
     input  clk,
 
-    output reg clk_div2,
-    output reg clk_div4
+    output reg laser_ready
 );
 
+
+   reg [31:0] count;
+
+   
    always @(posedge clk or negedge rstn) begin
       if(!rstn) begin
-         clk_div2 <= 0;
+         count <= 0;
+         laser_ready <= 0;
       end else begin
-         clk_div2 <= ~clk_div2;
+		         if (!laser_ready) begin
+					 if (count > 32'h00fffff0) begin
+						 count <= 0;
+						 laser_ready <= 1;   
+					 end else count <= count + 1;					 
+				 end
       end
    end
 
-   always @(posedge clk_div2 or negedge rstn) begin
-      if(!rstn) begin
-         clk_div4 <= 0;
-      end else begin
-         clk_div4 <= ~clk_div4;
-      end
-   end
+
 endmodule
 

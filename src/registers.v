@@ -12,14 +12,14 @@ module registers(
 	input [7:0]   		i2c_to_data,
     output              stretch_on,
 	
-    input [15:0]  		adc_voltage_data,
+    input [15:0]  		temperature_sensor,
+    input [15:0]  		adc_data,
     input [7:0]   		monitor_status,
     input [7:0]   		status,
 
     output reg [31:0] pulse_width_lower_limit,
     output reg [31:0] pulse_width_upper_limit,
     output reg [31:0] rate_lower_limit,
-    output reg [31:0] rate_upper_limit,
     output reg [15:0] drive_current_limit,
     output reg [15:0] pwm_current_limit,
     output reg [15:0] cw_current_limit,
@@ -72,15 +72,14 @@ assign stretch_on = stretch_wire;
 always @ (posedge clk or posedge rst) begin
 	if (rst) begin
 	    count <= 0;
-		pulse_width_lower_limit <= 32'h0005b0;
-		pulse_width_upper_limit <= 32'h0005f0;
-		rate_lower_limit <= 32'h091a00;
-		rate_upper_limit <= 32'h091b00;
-		drive_current_limit <= 16'hff00;
-		pwm_current_limit <= 16'hfff0;
-		cw_current_limit <= 16'h00b0;
-		pwm_mon_current_limit <= 16'h00a0;
-		cw_mon_current_limit <= 16'h00a0;
+		pulse_width_lower_limit <= 32'h000100;
+		pulse_width_upper_limit <= 32'h000155;
+		rate_lower_limit <= 32'h013000;
+		drive_current_limit <= 16'h2750;
+		pwm_current_limit <= 16'h0258;
+		cw_current_limit <= 16'h0320;
+		pwm_mon_current_limit <= 16'h03a0;
+		cw_mon_current_limit <= 16'h03a0;
 		static_control <=0;
 		dynamic_control <=0;
 	end else begin
@@ -105,10 +104,6 @@ always @ (posedge clk or posedge rst) begin
 					     8'h9 : rate_lower_limit[15:8] 		   <= i2c_to_data;
 					     8'hA : rate_lower_limit[23:16] 		   <= i2c_to_data;
 					     8'hB : rate_lower_limit[31:24] 		   <= i2c_to_data;
-						 8'hC : rate_upper_limit[7:0]  		   <= i2c_to_data;
-					     8'hD : rate_upper_limit[15:8] 		   <= i2c_to_data;
-					     8'hE : rate_upper_limit[23:16] 		   <= i2c_to_data;
-					     8'hF : rate_upper_limit[31:24] 		   <= i2c_to_data;
 						 8'h10 : drive_current_limit[7:0]    <= i2c_to_data;
 						 8'h11 : drive_current_limit[15:8]   <= i2c_to_data;
 						 8'h12 : pwm_current_limit[7:0]     <= i2c_to_data;
@@ -151,10 +146,6 @@ always @ (posedge clk or posedge rst) begin
 					  8'h9 : data_out <= rate_lower_limit[15:8];
 					  8'hA : data_out <= rate_lower_limit[23:16];
 					  8'hB : data_out <= rate_lower_limit[31:24];
-					  8'hC : data_out <= rate_upper_limit[7:0];
-					  8'hD : data_out <= rate_upper_limit[15:8];
-					  8'hE : data_out <= rate_upper_limit[23:16];
-					  8'hF : data_out <= rate_upper_limit[31:24];
 					  8'h10 : data_out <= drive_current_limit[7:0];
 					  8'h11 : data_out <= drive_current_limit[15:8];
 					  8'h12 : data_out <= pwm_current_limit[7:0];
@@ -165,13 +156,17 @@ always @ (posedge clk or posedge rst) begin
 					  8'h17 : data_out <= pwm_mon_current_limit[15:8];
 				     8'h18 : data_out <= cw_mon_current_limit[7:0];
 				     8'h19 : data_out <= cw_mon_current_limit[15:8];
-				     8'h1A : data_out <= adc_voltage_data[7:0];
-					 8'h1B : data_out <= adc_voltage_data[15:8];
-					 8'h1C : data_out <= monitor_status;
-					 8'h1D : data_out <= status;
+				     8'h1A : data_out <= temperature_sensor[7:0];
+					 8'h1B : data_out <= temperature_sensor[15:8];
+				     8'h1C : data_out <= adc_data[7:0];  //24
+					 8'h1D : data_out <= adc_data[15:8];
+					 8'h1E : data_out <= monitor_status;
 					 8'h20 : data_out <= static_control[7:0];
 					 8'h21 : data_out <= static_control[15:8];
-					  default : data_out <= 0;
+					 8'h22 : data_out <= dynamic_control[7:0];
+					 8'h23 : data_out <= dynamic_control[15:8];
+					 8'h24 : data_out <= status;
+					 default : data_out <= 0;
 				endcase
 		end
 end
