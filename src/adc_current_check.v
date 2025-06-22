@@ -22,13 +22,11 @@ module adc_current_check(
     input           rstn,
     input           clk,
     input           clear_fail,
-    input           bypass,
-    input           pulse_cw_select,
 
-    input [15:0]    adc_pulse_current_limit,
-    input [15:0]    adc_cw_current_limit,
+    input [15:0]   drive_current_limit,
+	
     input           adc_data_valid,
-    input [15:0]    adc_data,
+    input [15:0]   adc_data,
 
     output reg      current_limit_fail
 
@@ -54,14 +52,9 @@ begin
                 adc_data_d1 <= adc_data;
                 adc_data_d2 <= adc_data_d1;
                 case(state)
-                     IDLE : begin
-                                if (!bypass) begin
-                                    state <= START;
-                                end
-                            end
-                    START : begin
+                    IDLE : begin
                                 if (adc_data_valid) begin
-                                    if (adc_data_d2 > (pulse_cw_select ? adc_pulse_current_limit:adc_cw_current_limit)) begin
+                                    if (adc_data_d2 > (drive_current_limit)) begin
                                         current_limit_fail <= 1;
                                         state <= DONE;
                                     end else current_limit_fail <= 0;   
