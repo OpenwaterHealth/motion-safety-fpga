@@ -30,12 +30,10 @@ module adc_pulse_rate_check(
     input [31:0]    pulse_width_lower_limit,
     input [31:0]    pulse_width_upper_limit,
     input [31:0]    rate_lower_limit,
-    input [31:0]    rate_upper_limit,
 
     output reg      adc_pulse_width_lower_limit_fail,
     output reg      adc_pulse_width_upper_limit_fail,
-    output reg      adc_rate_lower_limit_fail,
-    output reg      adc_rate_upper_limit_fail
+    output reg      adc_rate_lower_limit_fail
 
 );
 
@@ -60,7 +58,6 @@ begin
         adc_pulse_width_lower_limit_fail <= 0;
         adc_pulse_width_upper_limit_fail <= 0;
         adc_rate_lower_limit_fail <= 0;
-        adc_rate_upper_limit_fail <= 0;
         state <= IDLE;
     end else begin
                 adc_data_d1 <= adc_data;
@@ -77,15 +74,6 @@ begin
                                 end
                             end
               PULSE_CHECK : begin
-                                if (adc_data_valid) begin
-                                    if (adc_data_d2 > pulse_high) begin
-                                        count <= count + 1;
-                                        if (count > pulse_width_upper_limit) begin
-                                            adc_pulse_width_upper_limit_fail <= 1;
-                                            state <= DONE;
-                                        end
-                                    end
-                                end
 
                                 if (adc_data_valid) begin
                                     if (adc_data_d2 < pulse_high) begin
@@ -98,20 +86,12 @@ begin
                             end
                RATE_CHECK : begin
                                 if (adc_data_valid) begin
-                                    if (adc_data_d2 > pulse_high) begin
-                                        count <= count + 1;
-                                        if (count > pulse_width_upper_limit) begin
-                                            adc_pulse_width_upper_limit_fail <= 1;
-                                            state <= DONE;
-                                        end 
-                                    end else begin
-                                                 if (adc_data_d2 < pulse_high) begin
-                                                     if (count < pulse_width_lower_limit) begin
-                                                         adc_pulse_width_lower_limit_fail <= 1;
-                                                         state <= DONE;
-                                                     end
-                                                 end
-                                             end
+                                     if (adc_data_d2 < pulse_high) begin
+                                          if (count < pulse_width_lower_limit) begin
+                                               adc_pulse_width_lower_limit_fail <= 1;
+                                               state <= DONE;
+                                          end
+                                     end
                                 end
                             end
                       DONE: begin

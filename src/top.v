@@ -49,24 +49,21 @@ wire        buf_rstn;
 wire        buf_clk;
 wire        buf_laser_active;
 wire        adc_data_valid;
-wire [15:0] adc_voltage_data;
-wire [15:0] adc_current_data;
+wire [15:0] adc_data_value;
 wire [7:0]  status;
-	
+
 wire [31:0] pulse_width_lower_limit;
 wire [31:0] pulse_width_upper_limit;
 wire [31:0] rate_lower_limit;
-wire [31:0] rate_upper_limit;
 wire [31:0] adc_pulse_current_limit;
 wire [31:0] adc_cw_current_limit;
 wire pulse_lower_limit_fail,adc_pulse_width_lower_limit_fail;
 wire pulse_upper_limit_fail,adc_pulse_width_upper_limit_fail;
 wire rate_lower_limit_fail,adc_rate_lower_limit_fail;
-wire rate_upper_limit_fail,adc_rate_upper_limit_fail;
 wire width_limit_window;
-wire rate_limit_window;
 wire current_limit_fail;
 
+wire [15:0] temperature_sensor;
 wire [15:0] drive_current;
 wire [15:0] drive_current_limit;
 wire [15:0] pwm_current_limit;
@@ -74,9 +71,16 @@ wire [15:0] cw_current_limit;
 wire [15:0] static_control;
 wire [15:0] dynamic_control;
 wire        over_current_limit;
+wire        laser_ready;
 
 wire [15:0] pwm_mon_current_limit;
 wire [15:0] cw_mon_current_limit;
+
+wire        edge_detect_1st;
+wire        edge_detect_2nd;
+wire        pulse_check;
+wire        period_check;
+wire        offset_count;
 
 ///////////////// reg 18 //////////////////////
 assign pulse_cw_select      = static_control[0];
@@ -92,41 +96,68 @@ assign test_fail_led_n      = !static_control[9];
 
 assign clear_fail           = dynamic_control[0];
 
-assign TA_shutdown = (pulse_lower_limit_fail | pulse_upper_limit_fail | rate_lower_limit_fail | rate_upper_limit_fail);
+assign TA_shutdown = (pulse_lower_limit_fail | pulse_upper_limit_fail | rate_lower_limit_fail);
+//assign TA_shutdown = 0;
 
-assign pulse_rate_status = {4'h0,pulse_lower_limit_fail,pulse_upper_limit_fail,rate_lower_limit_fail,rate_upper_limit_fail};
+assign pulse_rate_status = {4'h0,pulse_lower_limit_fail,pulse_upper_limit_fail,rate_lower_limit_fail,0};
 assign current_status = {7'h0,current_limit_fail};
-assign adc_status = {3'h0,laser_pulse,adc_pulse_width_upper_limit_fail,adc_pulse_width_lower_limit_fail,adc_rate_upper_limit_fail,adc_rate_lower_limit_fail};
+assign adc_status = {3'h0,laser_pulse,adc_pulse_width_upper_limit_fail,adc_pulse_width_lower_limit_fail,0,adc_rate_lower_limit_fail};
 
-assign spare1              = adc_sck;
-assign spare2              = adc_convert;
-assign spare3              = adc_sdo;
-assign spare4              = 0;
+assign spare1              = laser_pulse;
+//assign spare1              = current_limit_fail;
+//assign spare4              = adc_sck;
+//assign spare2              = adc_convert;
+//assign spare2              = adc_convert;
+//assign spare3              = adc_sdo;
+assign spare2              = pulse_lower_limit_fail;
+assign spare3              = pulse_upper_limit_fail;
+//assign spare3              = edge_detect_2nd;
+//assign spare4              = edge_detect_1st;
+//assign spare3              = adc_sck;
+//assign spare3              = pulse_check;
+//assign spare4              = adc_data_valid;
+assign spare4              = rate_lower_limit_fail;
+//assign spare4              = offset_count;
+//assign spare4              = laser_ready;
+
 assign gpio1               = 0;
 assign gpio2               = 0;
 assign gpio3               = 0;
 assign gpio4               = 0;
 
-assign status = {5'h0,system_reset_n,pwr_good,over_current_limit};
+
+
+assign status = {5'h0,rate_lower_limit_fail,(pulse_upper_limit_fail | pulse_lower_limit_fail),0};
+//assign status = {5'h0,rate_lower_limit_fail,(pulse_upper_limit_fail | pulse_lower_limit_fail),current_limit_fail};
+//assign status = 8'h0;
+
 assign temp_scl              = 0;
 assign temp_sda              = 0;
 assign prom_scl              = 0;
 assign prom_sda              = 0;
+assign buf_clk              = clk_50mhz;
 
-wire clk_div2;
+wire clk_div2,clk_div4;
 
 assign buf_rstn = rstn  & system_reset_n;
 
 reset_generator reset_generator( 
     .rstn      (rstn),
-    .clk       (clk_50mhz),
+    .clk       (clk_div4),
     .reset_n   (reset_n)
+);
+
+reset_laser reset_laser( 
+    .rstn          (rstn),
+    .clk           (clk_div4),
+    .laser_ready   (laser_ready)
 );
 
 clock_generator clock_generator( 
     .rstn      		(rstn),
-    .clk       		(clk_50mhz),
-    .clk_div2       (clk_div2)
+    .clk       		(buf_clk),
+    .clk_div2       (clk_div2),
+    .clk_div4       (clk_div4)
 );
 
 heart_beat heart_beat( 
@@ -142,14 +173,15 @@ i2c_slave_top i2c_slave_top (
 	.scl 					(scl),
 	.sda 					(sda),
 	
-    .adc_voltage_data 		(adc_voltage_data),
+
+    .temperature_sensor     (16'h1122),
+    .adc_data 		        (adc_data_value),
     .monitor_status 		(monitor_status),
     .status 				(status),
 	
     .pulse_width_lower_limit (pulse_width_lower_limit),
     .pulse_width_upper_limit (pulse_width_upper_limit),
     .rate_lower_limit     	 (rate_lower_limit),
-    .rate_upper_limit     	 (rate_upper_limit),
     .drive_current_limit   (drive_current_limit),
     .pwm_current_limit     (pwm_current_limit),
     .cw_current_limit      (cw_current_limit),
@@ -166,31 +198,29 @@ limit_check limit_check(
     .clear_fail                         (clear_fail),
 
     .laser_pulse                        (laser_pulse),
-    .pulse_cw_select                    (pulse_cw_select),
-    .adc_bypass                         (adc_bypass),
+    .laser_ready                        (laser_ready),
+
     .adc_data_valid                     (adc_data_valid),
-    .adc_data                           (adc_data),
+    .adc_data                           (adc_data_value),
 
     .pulse_width_lower_limit            (pulse_width_lower_limit),
     .pulse_width_upper_limit            (pulse_width_upper_limit),
     .rate_lower_limit                   (rate_lower_limit),
-    .rate_upper_limit                   (rate_upper_limit),
 
-    .adc_pulse_current_limit            (pulse_current_limit),
-    .adc_cw_current_limit               (cw_current_limit),
+    .drive_current_limit                (drive_current_limit),
 
     .pulse_lower_limit_fail             (pulse_lower_limit_fail),
     .pulse_upper_limit_fail             (pulse_upper_limit_fail),
     .rate_lower_limit_fail              (rate_lower_limit_fail),
-    .rate_upper_limit_fail              (rate_upper_limit_fail),
 
     .current_limit_fail                 (current_limit_fail),
-    .adc_pulse_width_lower_limit_fail   (adc_pulse_width_lower_limit_fail),
-    .adc_pulse_width_upper_limit_fail   (adc_pulse_width_upper_limit_fail),
-    .adc_rate_lower_limit_fail          (adc_rate_lower_limit_fail),
-    .adc_rate_upper_limit_fail          (adc_rate_upper_limit_fail),
     .width_limit_window                 (width_limit_window),
-    .rate_limit_window                  (rate_limit_window)
+    .offset_count                       (offset_count),
+
+    .edge_detect_1st                    (edge_detect_1st),
+    .edge_detect_2nd                    (edge_detect_2nd),
+    .pulse_check                        (pulse_check),
+    .period_check                       (period_check)
 
 );
 
@@ -199,6 +229,7 @@ adc_control adc_control(
     .rstn                   (reset_n),
     .clk                    (clk_div2),
 
+    .laser_pulse            (laser_pulse),
     .adc_sdo                (adc_sdo),
 
     .adc_sck                (adc_sck),

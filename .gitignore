@@ -74,3 +74,6 @@ test/csr.csv
 
 # hugo files 
 documentation/hugo-files/public*
+
+Safety_tcl.html
+promote.xml

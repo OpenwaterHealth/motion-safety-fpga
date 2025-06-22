@@ -22,12 +22,13 @@ module adc_control(
     input              rstn,
     input              clk,
 
+    input              laser_pulse,
     input              adc_sdo,
 
     output             adc_sck,
     output reg         adc_convert,
 	output reg         adc_data_valid,
-    output [15:0]     adc_data_value
+    output reg [15:0] adc_data_value
 
 )/* synthesis syn_preserve=1 */;
 
@@ -48,14 +49,13 @@ reg [13:0] voltage_data;
 reg [13:0] current_data;
 reg [15:0] adc_voltage_data_temp,adc_voltage_data_value;
 reg [3:0] sck_count;
+reg [3:0] index;
 
 reg data_ready;
 reg adc_sck_temp;
-reg adc_data_valid_temp;
+reg adc_data_valid_temp,adc_data_valid_temp_d;
 
 assign adc_sck = adc_sck_temp & data_ready;
-
-assign adc_data_value = adc_voltage_data_temp;
 
 always @(posedge clk,negedge rstn)
 begin
@@ -71,7 +71,7 @@ begin
                           IDLE : begin
                                     data_ready <= 0;
                                     adc_convert <= 1;
-                                    state <= CONVERT;
+									if (laser_pulse) state <= CONVERT;
                                  end
                        CONVERT : begin
                                     if (convert_count > 20) begin
@@ -88,7 +88,8 @@ begin
                        SCK_LOW : begin
                                     adc_sck_temp <= 0;
                                     if (sck_count > 12) data_ready <= 0;
-                                    if (sck_count > 12) begin
+                                    if (sck_count > 13) adc_convert <= 1;
+                                    if (sck_count > 14) begin
                                         sck_count <= 0;
                                         state <= IDLE;
                                     end else begin
@@ -103,7 +104,8 @@ end
 always @(posedge adc_sck_temp,negedge rstn)
 begin
     if (!rstn) begin
-        count <= 13;     
+        index <= 13;     
+        count <= 0;     
         adc_data_valid_temp <= 0; 
         adc_voltage_data_temp <= 0;    
         voltage_data <= 0;     
@@ -115,12 +117,14 @@ begin
                                     if (data_ready) capture_state <= CAPTURE;
                                end
                      CAPTURE : begin //4
-                                    voltage_data[count] <= adc_sdo;
-                                    if (count > 0) begin
-                                        count <= count - 1;
+                                    voltage_data[index] <= adc_sdo;
+                                    if (count > 12) begin
+                                        index <= 13;
+                                        count <= 0;
+                                        capture_state <= DONE;
                                     end else begin
-                                                count <= 13;
-                                                capture_state <= DONE;
+                                                index <= index - 1;
+                                                count <= count + 1;
                                              end
 
                               end
@@ -136,13 +140,18 @@ end
 always @(posedge clk,negedge rstn)
 begin
     if (!rstn) begin
+        adc_data_valid_temp_d <= 0;     
         adc_voltage_data_value <= 0;     
+        adc_data_value <= 16'h3344;     
         adc_data_valid <= 0;     
     end else begin
-                   if (adc_data_valid_temp) begin
-                       adc_data_valid <= 1;
-                       adc_voltage_data_value <= adc_voltage_data_temp;
+		           adc_data_valid_temp_d <= adc_data_valid_temp;
+				   
+                   if (!adc_data_valid_temp_d & adc_data_valid_temp) begin
+                        adc_data_valid <= 1;
+						adc_data_value <= adc_voltage_data_temp;
                    end else adc_data_valid <= 0;
+					   
              end
 end
 

@@ -43,9 +43,11 @@ module reset_generator(
    reg  out_n;
 
    reg clk_d2;
-      
+   reg reset_delay;
+   reg [15:0] count;
+   
  //  assign reset_n = out_n & sys_reset_out_n;
-   assign reset_n = out_n;
+   assign reset_n = out_n & reset_delay;
 
 
    always @(posedge clk or negedge rstn) begin
@@ -79,5 +81,19 @@ module reset_generator(
       end
    end
    
+      always @(posedge clk or negedge rstn) begin
+      if(!rstn) begin
+         reset_delay <= 0;
+      end else begin
+		         if (!reset_delay) begin
+					 if (count > 16'h00f0) begin
+						 count <= 0;
+						 reset_delay <= 1;   
+					 end else count <= count + 1;					 
+				 end
+      end
+   end
+
+
 endmodule
 

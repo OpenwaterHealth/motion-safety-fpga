@@ -1,175 +1,222 @@
 # Reading pref.tcl
-# do {C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/TestBench.mdo}
-# Loading project TestBench
+# do {D:/FPGA/6162025/Safety/Rev_2/test/test.mdo}
+# Loading project test
 # Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:06 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_control.v 
-# -- Compiling module adc_control
-# 
-# Top level modules:
-# 	adc_control
-# End time: 17:27:06 on Mar 27,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:06 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_pulse_rate_check.v 
-# -- Compiling module adc_pulse_rate_check
-# 
-# Top level modules:
-# 	adc_pulse_rate_check
-# End time: 17:27:06 on Mar 27,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:06 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_current_check.v 
+# Start time: 20:29:10 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/adc_current_check.v 
 # -- Compiling module adc_current_check
 # 
 # Top level modules:
 # 	adc_current_check
-# End time: 17:27:06 on Mar 27,2025, Elapsed time: 0:00:00
+# End time: 20:29:10 on Jun 19,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:06 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_check.v 
+# Start time: 20:29:10 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/adc_check.v 
 # -- Compiling module adc_check
 # 
 # Top level modules:
 # 	adc_check
-# End time: 17:27:06 on Mar 27,2025, Elapsed time: 0:00:00
+# End time: 20:29:10 on Jun 19,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:06 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/logic_check.v 
+# Start time: 20:29:10 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/logic_check.v 
 # -- Compiling module logic_check
 # 
 # Top level modules:
 # 	logic_check
-# End time: 17:27:06 on Mar 27,2025, Elapsed time: 0:00:00
+# End time: 20:29:10 on Jun 19,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:06 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/limit_check.v 
+# Start time: 20:29:10 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/limit_check.v 
 # -- Compiling module limit_check
 # 
 # Top level modules:
 # 	limit_check
-# End time: 17:27:06 on Mar 27,2025, Elapsed time: 0:00:00
+# End time: 20:29:10 on Jun 19,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:06 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/registers.v 
-# -- Compiling module registers
-# 
-# Top level modules:
-# 	registers
-# End time: 17:27:06 on Mar 27,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:06 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller.v 
-# -- Compiling module i2cslave_controller
-# 
-# Top level modules:
-# 	i2cslave_controller
-# End time: 17:27:07 on Mar 27,2025, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:07 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/filter.v 
-# -- Compiling module filter
-# 
-# Top level modules:
-# 	filter
-# End time: 17:27:07 on Mar 27,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:07 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v 
-# -- Compiling module i2cslave_controller_top
-# 
-# Top level modules:
-# 	i2cslave_controller_top
-# End time: 17:27:07 on Mar 27,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:07 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2c_slave_top.v 
-# -- Compiling module i2c_slave_top
-# 
-# Top level modules:
-# 	i2c_slave_top
-# End time: 17:27:07 on Mar 27,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:07 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/heart_beat.v 
+# Start time: 20:29:10 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/heart_beat.v 
 # -- Compiling module heart_beat
 # 
 # Top level modules:
 # 	heart_beat
-# End time: 17:27:07 on Mar 27,2025, Elapsed time: 0:00:00
+# End time: 20:29:10 on Jun 19,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:07 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/clock_generator.v 
-# -- Compiling module clock_generator
-# 
-# Top level modules:
-# 	clock_generator
-# End time: 17:27:07 on Mar 27,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:07 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/reset_generator.v 
+# Start time: 20:29:10 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/reset_generator.v 
 # -- Compiling module reset_generator
 # 
 # Top level modules:
 # 	reset_generator
-# End time: 17:27:07 on Mar 27,2025, Elapsed time: 0:00:00
+# End time: 20:29:10 on Jun 19,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:07 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v 
-# -- Compiling module top
+# Start time: 20:29:10 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/adc_control.v 
+# -- Compiling module adc_control
 # 
 # Top level modules:
-# 	top
-# End time: 17:27:07 on Mar 27,2025, Elapsed time: 0:00:00
+# 	adc_control
+# End time: 20:29:11 on Jun 19,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:07 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_master.v 
+# Start time: 20:29:11 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/registers.v 
+# -- Compiling module registers
+# 
+# Top level modules:
+# 	registers
+# End time: 20:29:11 on Jun 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
+# Start time: 20:29:11 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/i2cslave_controller.v 
+# -- Compiling module i2cslave_controller
+# 
+# Top level modules:
+# 	i2cslave_controller
+# End time: 20:29:11 on Jun 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
+# Start time: 20:29:11 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/filter.v 
+# -- Compiling module filter
+# 
+# Top level modules:
+# 	filter
+# End time: 20:29:11 on Jun 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
+# Start time: 20:29:11 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/i2cslave_controller_top.v 
+# -- Compiling module i2cslave_controller_top
+# 
+# Top level modules:
+# 	i2cslave_controller_top
+# End time: 20:29:11 on Jun 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
+# Start time: 20:29:11 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/i2c_slave_top.v 
+# -- Compiling module i2c_slave_top
+# 
+# Top level modules:
+# 	i2c_slave_top
+# End time: 20:29:11 on Jun 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
+# Start time: 20:29:11 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/clock_generator.v 
+# -- Compiling module clock_generator
+# 
+# Top level modules:
+# 	clock_generator
+# End time: 20:29:11 on Jun 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
+# Start time: 20:29:11 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/i2c_master.v 
 # -- Compiling module i2c_master
 # 
 # Top level modules:
 # 	i2c_master
-# End time: 17:27:07 on Mar 27,2025, Elapsed time: 0:00:00
+# End time: 20:29:11 on Jun 19,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:07 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/top_tb.v 
+# Start time: 20:29:11 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/i2c_master_top.v 
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 20:29:11 on Jun 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
+# Start time: 20:29:11 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/TestBench" -work work D:/FPGA/6162025/Safety/Rev_2/TestBench/top_tb.v 
 # -- Compiling module top_tb
 # 
 # Top level modules:
 # 	top_tb
-# End time: 17:27:07 on Mar 27,2025, Elapsed time: 0:00:00
+# End time: 20:29:11 on Jun 19,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:07 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_slave_tb.v 
+# Start time: 20:29:11 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/TestBench" -work work D:/FPGA/6162025/Safety/Rev_2/TestBench/i2c_slave_tb.v 
 # -- Compiling module i2c_slave_tb
 # 
 # Top level modules:
 # 	i2c_slave_tb
-# End time: 17:27:07 on Mar 27,2025, Elapsed time: 0:00:00
+# End time: 20:29:11 on Jun 19,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
-# Start time: 17:27:07 on Mar 27,2025
-# vlog -reportprogress 300 "+incdir+C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench" -work work C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/tb_defines.v 
-# End time: 17:27:07 on Mar 27,2025, Elapsed time: 0:00:00
+# Start time: 20:29:11 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/TestBench" -work work D:/FPGA/6162025/Safety/Rev_2/TestBench/i2c_test_bench.v 
+# -- Compiling module i2c_test_bench
+# 
+# Top level modules:
+# 	i2c_test_bench
+# End time: 20:29:11 on Jun 19,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vsim -L work -L pmi_work -L ovi_machxo2 top_tb 
-# Start time: 17:27:08 on Mar 27,2025
+# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
+# Start time: 20:29:12 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/reset_laser.v 
+# -- Compiling module reset_laser
+# 
+# Top level modules:
+# 	reset_laser
+# End time: 20:29:12 on Jun 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
+# Start time: 20:29:12 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/i2c_master2.v 
+# -- Compiling module i2c_master2
+# 
+# Top level modules:
+# 	i2c_master2
+# End time: 20:29:12 on Jun 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
+# Start time: 20:29:12 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/TestBench" -work work D:/FPGA/6162025/Safety/Rev_2/TestBench/tb_i2c_master.v 
+# -- Compiling module tb_i2c_master
+# 
+# Top level modules:
+# 	tb_i2c_master
+# End time: 20:29:12 on Jun 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
+# Start time: 20:29:12 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/src" -work work D:/FPGA/6162025/Safety/Rev_2/src/top.v 
+# -- Compiling module top
+# ** Warning: D:/FPGA/6162025/Safety/Rev_2/src/top.v(101): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: D:/FPGA/6162025/Safety/Rev_2/src/top.v(103): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# 
+# Top level modules:
+# 	top
+# End time: 20:29:12 on Jun 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
+# Start time: 20:29:12 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/TestBench" -work work D:/FPGA/6162025/Safety/Rev_2/TestBench/tb_defines.v 
+# End time: 20:29:12 on Jun 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vlog 2023.3 Compiler 2023.07 Jul 18 2023
+# Start time: 20:29:12 on Jun 19,2025
+# vlog -reportprogress 300 "+incdir+D:/FPGA/6162025/Safety/Rev_2/TestBench" -work work D:/FPGA/6162025/Safety/Rev_2/TestBench/i2c_master.v 
+# -- Compiling module i2c_master
+# 
+# Top level modules:
+# 	i2c_master
+# End time: 20:29:12 on Jun 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -L work -L pmi_work -L ovi_machxo2 tb_i2c_master 
+# Start time: 20:29:13 on Jun 19,2025
 # //  ModelSim - Lattice FPGA Edition 2023.3 Jul 18 2023
 # //
 # //  Copyright 1991-2023 Mentor Graphics Corporation
@@ -183,166 +230,14 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-# Loading work.top_tb
-# Loading work.i2c_master
-# Loading work.top
-# Loading work.reset_generator
-# Loading work.clock_generator
-# Loading work.heart_beat
-# Loading work.i2c_slave_top
-# Loading work.i2cslave_controller_top
-# Loading work.filter
-# Loading work.i2cslave_controller
-# Loading work.registers
-# Loading work.limit_check
-# Loading work.logic_check
-# Loading work.adc_check
-# Loading work.adc_current_check
-# Loading work.adc_pulse_rate_check
-# Loading work.adc_control
-# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'pwr_good'. The port definition is at: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v(9).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/top File: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/top_tb.v Line: 81
-# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'adc_sdo'. The port definition is at: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v(22).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/top File: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/top_tb.v Line: 81
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (1) for port 'monitor_status'. The port definition is at: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2c_slave_top.v(28).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/top/i2c_slave_top File: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v Line: 138
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'i2cslave_controller_u1'.  Expected 26, found 18.
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/top/i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1 File: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v Line: 124
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_intr'.
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_rx_status'.
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_data_request'.
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_init_done'.
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_rd_done'.
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_timeout_err'.
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_init_intr'.
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_timeout_intr'.
-# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'adc_data'. The port definition is at: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/limit_check.v(12).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/top/limit_check File: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v Line: 163
-# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'adc_pulse_current_limit'. The port definition is at: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/limit_check.v(18).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/top/limit_check File: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v Line: 163
-# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'adc_data_value'. The port definition is at: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_control.v(30).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/top/adc_control File: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v Line: 198
+# Loading work.tb_i2c_master
+# Loading work.i2c_master2
 # .main_pane.wave.interior.cs.body.pw.wf
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: Henry Tang  Hostname: DESKTOP-HKS9BFC  ProcessID: 38096
-#           Attempting to use alternate WLF file "./wlft390bm0".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft390bm0
-add wave -position end sim:/top_tb/top/limit_check/logic_check/*
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'pwr_good'. The port definition is at: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v(9).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/top File: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/top_tb.v Line: 81
-# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'adc_sdo'. The port definition is at: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v(22).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/top File: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/top_tb.v Line: 81
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (1) for port 'monitor_status'. The port definition is at: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2c_slave_top.v(28).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/top/i2c_slave_top File: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v Line: 138
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'i2cslave_controller_u1'.  Expected 26, found 18.
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/top/i2c_slave_top/i2cslave_controller_top/i2cslave_controller_u1 File: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v Line: 124
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_intr'.
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_rx_status'.
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_data_request'.
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_init_done'.
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_rd_done'.
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_timeout_err'.
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_init_intr'.
-# ** Warning: (vsim-3722) C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/i2cslave_controller_top.v(124): [TFMPC] - Missing connection for port 'o_timeout_intr'.
-# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'adc_data'. The port definition is at: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/limit_check.v(12).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/top/limit_check File: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v Line: 163
-# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'adc_pulse_current_limit'. The port definition is at: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/limit_check.v(18).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/top/limit_check File: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v Line: 163
-# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'adc_data_value'. The port definition is at: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/adc_control.v(30).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/top/adc_control File: C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/src/top.v Line: 198
-run -all
-#               203002: The I2C Master Has Generated a Start Condition.
-#  
-#               281502: The I2C Master Sends the 7-bit I2C Address 0x41 (0b1000001)
-#  
-#               374752: The I2C Master Sends the I2C Register Byte 0x00
-#  
-#               470502: I2C Master Write Data = 0xb1
-#  
-#               565002: I2C Master Write Data = 0x05
-#  
-#               659502: I2C Master Write Data = 0x00
-#  
-#               754002: I2C Master Write Data = 0x00
-#  
-#               780052: The I2C Master Has Generated a Stop Condition
-#              --------------------------------------------------------
-#  
-#  
-#               890502: The I2C Master Has Generated a Start Condition.
-#  
-#               969002: The I2C Master Sends the 7-bit I2C Address 0x41 (0b1000001)
-#  
-#              1062252: The I2C Master Sends the I2C Register Byte 0x04
-#  
-#              1158002: I2C Master Write Data = 0xf1
-#  
-#              1252502: I2C Master Write Data = 0x05
-#  
-#              1347002: I2C Master Write Data = 0x00
-#  
-#              1441502: I2C Master Write Data = 0x00
-#  
-#              1467552: The I2C Master Has Generated a Stop Condition
-#              --------------------------------------------------------
-#  
-#  
-#              1578002: The I2C Master Has Generated a Start Condition.
-#  
-#              1656502: The I2C Master Sends the 7-bit I2C Address 0x41 (0b1000001)
-#  
-#              1749752: The I2C Master Sends the I2C Register Byte 0x08
-#  
-#              1845502: I2C Master Write Data = 0x01
-#  
-#              1940002: I2C Master Write Data = 0x1a
-#  
-#              2034502: I2C Master Write Data = 0x09
-#  
-#              2129002: I2C Master Write Data = 0x00
-#  
-#              2155052: The I2C Master Has Generated a Stop Condition
-#              --------------------------------------------------------
-#  
-#  
-#              2265502: The I2C Master Has Generated a Start Condition.
-#  
-#              2344002: The I2C Master Sends the 7-bit I2C Address 0x41 (0b1000001)
-#  
-#              2437252: The I2C Master Sends the I2C Register Byte 0x0c
-#  
-#              2533002: I2C Master Write Data = 0x01
-#  
-#              2627502: I2C Master Write Data = 0x1b
-#  
-#              2722002: I2C Master Write Data = 0x09
-#  
-#              2816502: I2C Master Write Data = 0x00
-#  
-#              2842552: The I2C Master Has Generated a Stop Condition
-#              --------------------------------------------------------
-#  
-#  
-#              2953002: The I2C Master Has Generated a Start Condition.
-#  
-#              3031502: The I2C Master Sends the 7-bit I2C Address 0x41 (0b1000001)
-#  
-#              3124752: The I2C Master Sends the I2C Register Byte 0x20
-#  
-#              3220502: I2C Master Write Data = 0x80
-#  
-#              3246552: The I2C Master Has Generated a Stop Condition
-#              --------------------------------------------------------
-#  
-#  
-# ** Note: $stop    : C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_master.v(225)
-#    Time: 3246558 ns  Iteration: 0  Instance: /top_tb/master_uut
-# Break in Module i2c_master at C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/i2c_master.v line 225
+# ** Note: $stop    : D:/FPGA/6162025/Safety/Rev_2/TestBench/tb_i2c_master.v(212)
+#    Time: 930 ns  Iteration: 0  Instance: /tb_i2c_master
+# Break in Module tb_i2c_master at D:/FPGA/6162025/Safety/Rev_2/TestBench/tb_i2c_master.v line 212
 run -all
 # Break key hit
-# Break in Module top_tb at C:/Project/Working/FPGA/HOME/Lattice/Safety/Rev_0/TestBench/top_tb.v line 64
-# End time: 20:38:29 on Mar 27,2025, Elapsed time: 3:11:21
-# Errors: 0, Warnings: 17
+# Break in Module tb_i2c_master at D:/FPGA/6162025/Safety/Rev_2/TestBench/tb_i2c_master.v line 150
+# End time: 07:24:50 on Jun 20,2025, Elapsed time: 10:55:37
+# Errors: 0, Warnings: 27

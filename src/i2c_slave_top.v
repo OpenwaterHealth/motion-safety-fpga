@@ -24,14 +24,15 @@ module i2c_slave_top(
     inout     	   scl,             		 
     inout     	   sda,             		 
 			
-    input [15:0]  adc_voltage_data,
+    input [15:0]  temperature_sensor,
+
+    input [15:0]  adc_data,
     input [7:0]   monitor_status,
     input [7:0]   status,
 
     output [31:0] pulse_width_lower_limit,
     output [31:0] pulse_width_upper_limit,
     output [31:0] rate_lower_limit,
-    output [31:0] rate_upper_limit,
     output [15:0] drive_current_limit,
     output [15:0] pwm_current_limit,
     output [15:0] cw_current_limit,
@@ -77,14 +78,14 @@ registers registers(
 	.i2c_to_data			(data_out),
 	.stretch_on             (stretch_on),
 
-	.adc_voltage_data 		(adc_voltage_data),
+	.temperature_sensor     (temperature_sensor),
+	.adc_data 		        (adc_data),
 	.monitor_status 		(monitor_status),
 	.status 				(status),
 	
     .pulse_width_lower_limit (pulse_width_lower_limit),
     .pulse_width_upper_limit (pulse_width_upper_limit),
     .rate_lower_limit     	 (rate_lower_limit),
-    .rate_upper_limit     	 (rate_upper_limit),
     .drive_current_limit    (drive_current_limit),
     .pwm_current_limit      (pwm_current_limit),
     .cw_current_limit       (cw_current_limit),
