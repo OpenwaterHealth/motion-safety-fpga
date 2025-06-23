@@ -52,6 +52,7 @@ wire			stretch_wire;
 reg				skip_cnt;
 reg [3:0]      count;
 reg             data_vld_dly;
+reg [7:0]      status_d1;
 
 //Parameters
 parameter		s0_r_w				=	2'b00;			// check if the request is read or write.
@@ -130,9 +131,11 @@ always @ (posedge clk or posedge rst) begin
 	if (rst)
 		begin
 			data_out <= 0;
+			status_d1 <= 0;
 		end
 	else 
 		begin
+			   status_d1 <= status;
 		        case (addr_i)
 					  8'h0 : data_out <= pulse_width_lower_limit[7:0];
 					  8'h1 : data_out <= pulse_width_lower_limit[15:8];
@@ -165,7 +168,7 @@ always @ (posedge clk or posedge rst) begin
 					 8'h21 : data_out <= static_control[15:8];
 					 8'h22 : data_out <= dynamic_control[7:0];
 					 8'h23 : data_out <= dynamic_control[15:8];
-					 8'h24 : data_out <= status;
+					 8'h24 : data_out <= status_d1;
 					 default : data_out <= 0;
 				endcase
 		end

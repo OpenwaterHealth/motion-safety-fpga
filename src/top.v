@@ -86,10 +86,10 @@ wire        offset_count;
 assign pulse_cw_select      = static_control[0];
 assign adc_bypass           = static_control[1];
 assign laser_pwr_en1_n      = !static_control[2];
-assign calibrated_led_n     = !static_control[3];
-assign peak_error_led_n     = !static_control[4];
-assign pulse_error_led_n    = !static_control[5];
-assign rate_error_led_n     = !static_control[6];
+assign calibrated_led_n     = !pulse_lower_limit_fail;
+assign peak_error_led_n     = !current_limit_fail;
+assign pulse_error_led_n    = !pulse_upper_limit_fail;
+assign rate_error_led_n     = !rate_lower_limit_fail;
 assign watchdog_timeout_led_n = !static_control[7];
 assign test_pass_led_n      = !static_control[8];
 assign test_fail_led_n      = !static_control[9];
@@ -127,9 +127,8 @@ assign gpio4               = 0;
 
 
 
-assign status = {5'h0,rate_lower_limit_fail,(pulse_upper_limit_fail | pulse_lower_limit_fail),0};
+assign status = {5'h0,rate_lower_limit_fail,(pulse_upper_limit_fail | pulse_lower_limit_fail),1'h0};
 //assign status = {5'h0,rate_lower_limit_fail,(pulse_upper_limit_fail | pulse_lower_limit_fail),current_limit_fail};
-//assign status = 8'h0;
 
 assign temp_scl              = 0;
 assign temp_sda              = 0;
