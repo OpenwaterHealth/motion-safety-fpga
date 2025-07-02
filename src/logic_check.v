@@ -35,11 +35,11 @@ module logic_check(
 
     output reg      edge_detect_1st,
     output reg      edge_detect_2nd,
-    output reg      offset_count,
 	
     output          width_limit_window,
     output reg      pulse_check,
-    output reg      period_check
+    output reg      period_check,
+    output reg      pulse_limit_check
 
 );
 
@@ -53,7 +53,6 @@ parameter   IDLE         = 0,
 reg [3:0]  state,window_state,edge_detect_state;
 reg        laser_pulse_d1,laser_pulse_d2,laser_pulse_d3,laser_pulse_d4,laser_pulse_d5;
 reg [31:0] count,window_count;
-//reg        edge_detect_1st,edge_detect_2nd;
 reg pulse_width_limit_window;
 reg [3:0] edge_count;
 reg [31:0] pulse_width_lower_limit_d,pulse_width_upper_limit_d;
@@ -86,41 +85,27 @@ always @(posedge pulse_clk,negedge rstn)
 begin
     if (!rstn) begin
         laser_pulse_d1 <= 0;     
-        laser_pulse_d2 <= 0;     
-        laser_pulse_d3 <= 0;     
-        laser_pulse_d4 <= 0;     
-        laser_pulse_d5 <= 0; 
         edge_detect_1st <= 0;    
         edge_detect_2nd <= 0;   
         edge_count <= 0;   
         edge_detect_state <= IDLE;
     end else begin
                 laser_pulse_d1 <= laser_pulse;
-                laser_pulse_d2 <= laser_pulse_d1;
-                laser_pulse_d3 <= laser_pulse_d2;
-                laser_pulse_d4 <= laser_pulse_d3;
-                laser_pulse_d5 <= laser_pulse_d4;
 				
                 case(edge_detect_state)
                      IDLE : begin
-								 if (!laser_pulse_d1 & laser_pulse) edge_detect_1st <= 1; 
-								 if (edge_count > 10) begin
-									 edge_count <= 0; 
-									 edge_detect_1st <= 0; 
+						         edge_detect_2nd <= 0;
+								 if (!laser_pulse_d1 & laser_pulse) begin
+									 edge_detect_1st <= 1; 
 									 edge_detect_state <= DONE;
-								 end else begin
-									        edge_count <= edge_count + 1;
-									      end
+								 end
                             end
                      DONE : begin
-                                 if (laser_pulse_d1 & !laser_pulse) edge_detect_2nd <= 1;
-								 if (edge_count > 10) begin
-									 edge_count <= 0; 
-									 edge_detect_2nd <= 0; 
+						         edge_detect_1st <= 0; 
+                                 if (laser_pulse_d1 & !laser_pulse) begin
+									 edge_detect_2nd <= 1;
 									 edge_detect_state <= IDLE;
-								 end else begin
-									        edge_count <= edge_count + 1;
-									      end
+								 end
                             end
 
                 endcase
@@ -132,45 +117,48 @@ always @(posedge pulse_clk,negedge rstn)
 begin
     if (!rstn) begin
         count <= 0;  
-        offset_count <= 0;  
         pulse_lower_limit_fail <= 0;
         pulse_upper_limit_fail <= 0;
         rate_lower_limit_fail <= 0;
         pulse_check <= 0;
         period_check <= 0;
+		pulse_limit_check <= 0;
         state <= IDLE;
     end else begin				
                 case(state)
                      IDLE : begin
-                                offset_count <= 0;
                                 if (edge_detect_1st) begin
-                                     count <= count + 1;
+                                     count <= count + 2;
                                      state <= WIDTH_CHECK;
 							    end else count <= 0;
                             end
                WIDTH_CHECK: begin
 				   				pulse_check <= 1;
 				                period_check <= 0;
-
 				                count <= count + 1;
+                                if (count > 32'h2f5) pulse_limit_check <= 1;    // offset = 13, 0x2f5, 6% windows
                                 if (!laser_pulse_d1) begin
-                                    if (count > pulse_width_upper_limit+90) begin
+									pulse_limit_check <= 0; 
+                                    if (count > pulse_width_upper_limit) begin    // 0x314
                                         pulse_upper_limit_fail <= 1;
                                         state <= DONE;
                                     end else begin
-												if (count < pulse_width_lower_limit+90) begin
+												if (count < pulse_width_lower_limit) begin    // 0x307
 													pulse_lower_limit_fail <= 1;
 													state <= DONE;
 												end else state <= RATE_CHECK;
 											 end
                                 end  
+
                             end
                RATE_CHECK: begin
 				                pulse_check <= 0;
 				                period_check <= 1;
-								offset_count <= 0;
+								pulse_limit_check <= 0;
+								if (count == 32'h013123) pulse_limit_check <= 1;    // offset = 10, 1% windows
                                 if (laser_pulse_d1) begin
-                                    if (count < rate_lower_limit) begin
+									pulse_limit_check <= 0; 
+                                    if (count < rate_lower_limit) begin             // 32'h01312d=25ms
                                         rate_lower_limit_fail <= 1;
                                         state <= DONE;
                                     end else begin
@@ -221,13 +209,13 @@ begin
                             end
         CHECK_LOWER_WINDOW: begin
                                 window_count <= window_count + 1;
-                                if (window_count == pulse_width_lower_limit_d+90) begin
+                                if (window_count == pulse_width_lower_limit_d) begin
 									pulse_width_limit_window <= 1;
                                     window_state <= CHECK_UPPER_WINDOW;
                                 end 
                             end
         CHECK_UPPER_WINDOW: begin
-                                if (window_count == pulse_width_upper_limit_d+90) begin
+                                if (window_count == pulse_width_upper_limit_d) begin
                                     window_count <= 0;
                                     pulse_width_limit_window <= 0;
                                     window_state <= IDLE;
