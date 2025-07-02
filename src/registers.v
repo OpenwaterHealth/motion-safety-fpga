@@ -13,6 +13,11 @@ module registers(
     output              stretch_on,
 	
     input [15:0]  		temperature_sensor,
+    input [7:0]     	revision,
+    input [7:0]     	minor,
+    input [7:0]     	major,
+    input [7:0]     	ID,
+
     input [15:0]  		adc_data,
     input [7:0]   		monitor_status,
     input [7:0]   		status,
@@ -73,9 +78,9 @@ assign stretch_on = stretch_wire;
 always @ (posedge clk or posedge rst) begin
 	if (rst) begin
 	    count <= 0;
-		pulse_width_lower_limit <= 32'h000100;
-		pulse_width_upper_limit <= 32'h000155;
-		rate_lower_limit <= 32'h013000;
+		pulse_width_lower_limit <= 32'h0002f8;    // 0x2F8=0x307-13
+		pulse_width_upper_limit <= 32'h000321;    // 0x321=0x314+13
+		rate_lower_limit <= 32'h013120;
 		drive_current_limit <= 16'h2750;
 		pwm_current_limit <= 16'h0258;
 		cw_current_limit <= 16'h0320;
@@ -169,6 +174,11 @@ always @ (posedge clk or posedge rst) begin
 					 8'h22 : data_out <= dynamic_control[7:0];
 					 8'h23 : data_out <= dynamic_control[15:8];
 					 8'h24 : data_out <= status_d1;
+					 8'h25 : data_out <= revision;
+					 8'h26 : data_out <= minor;
+					 8'h27 : data_out <= major;
+					 8'h28 : data_out <= ID;
+
 					 default : data_out <= 0;
 				endcase
 		end

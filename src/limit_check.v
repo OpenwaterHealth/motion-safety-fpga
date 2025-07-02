@@ -25,10 +25,11 @@ module limit_check(
     output       width_limit_window,
 	output       edge_detect_1st,
     output       edge_detect_2nd,
-    output       offset_count,
 
 	output       pulse_check,
-    output       period_check  
+    output       period_check,
+    output       pulse_limit_check
+
 
 
 );
@@ -52,10 +53,11 @@ logic_check logic_check(
     .width_limit_window       (width_limit_window),
     .edge_detect_1st          (edge_detect_1st),
     .edge_detect_2nd          (edge_detect_2nd),
-    .offset_count             (offset_count),
 
     .pulse_check              (pulse_check),
-    .period_check             (period_check)
+    .period_check             (period_check),
+    .pulse_limit_check        (pulse_limit_check)
+
 
 );
 
