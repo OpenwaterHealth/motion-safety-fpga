@@ -25,6 +25,10 @@ module i2c_slave_top(
     inout     	   sda,             		 
 			
     input [15:0]  temperature_sensor,
+    input [7:0]   revision,
+    input [7:0]   minor,
+    input [7:0]   major,
+    input [7:0]   ID,
 
     input [15:0]  adc_data,
     input [7:0]   monitor_status,
@@ -79,6 +83,11 @@ registers registers(
 	.stretch_on             (stretch_on),
 
 	.temperature_sensor     (temperature_sensor),
+	.revision     			(revision),
+	.minor     				(minor),
+	.major     				(major),
+	.ID     				(ID),
+
 	.adc_data 		        (adc_data),
 	.monitor_status 		(monitor_status),
 	.status 				(status),
