@@ -59,6 +59,7 @@ reg [31:0] pulse_width_lower_limit_d,pulse_width_upper_limit_d;
 reg [15:0] clk_count;
 wire pulse_clk;
 reg laser_pulse;
+reg clear_fail_d1,clear_fail_d2,clear_fail_d3,clear_fail_d4,clear_fail_all;
 
 assign width_limit_window = pulse_width_limit_window;
 
@@ -71,6 +72,21 @@ always @(posedge clk or negedge rstn) begin
                   clk_count <= clk_count + 1;
                end
 end
+
+always @(posedge clk or negedge rstn) begin
+      if (!rstn) begin
+           clear_fail_d1 <= 0;
+           clear_fail_d2 <= 0;
+           clear_fail_d3 <= 0;
+           clear_fail_d4 <= 0;
+      end else begin
+                  clear_fail_d1 <= clear_fail;
+                  clear_fail_d2 <= clear_fail_d1;
+                  clear_fail_d3 <= clear_fail_d2;
+				  clear_fail_d4 <= clear_fail_d3 | clear_fail_d2 | clear_fail_d1 | clear_fail;
+               end
+end
+
 
 always @(posedge pulse_clk,negedge rstn)
 begin
@@ -123,8 +139,10 @@ begin
         pulse_check <= 0;
         period_check <= 0;
 		pulse_limit_check <= 0;
+		clear_fail_all <= 0;
         state <= IDLE;
-    end else begin				
+    end else begin			
+                clear_fail_all <= clear_fail_d4;		
                 case(state)
                      IDLE : begin
                                 if (edge_detect_1st) begin
@@ -174,7 +192,7 @@ begin
                             end
                      DONE : begin
                                 if (pulse_lower_limit_fail | pulse_upper_limit_fail | rate_lower_limit_fail) begin
-                                    if (clear_fail) begin
+                                    if (clear_fail_all) begin
                                         count <= 0;
                                         pulse_lower_limit_fail <= 0;
                                         pulse_upper_limit_fail <= 0;

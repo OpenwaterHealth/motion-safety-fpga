@@ -113,7 +113,9 @@ assign adc_status = {3'h0,laser_pulse,adc_pulse_width_upper_limit_fail,adc_pulse
 
 assign spare1              = laser_pulse;
 //assign spare1              = current_limit_fail;
-//assign spare4              = adc_sck;/assign spare2              = pulse_limit_check;
+//assign spare4              = adc_sck;
+assign spare2              = clear_fail;
+//assign spare2              = pulse_limit_check;
 assign spare3              = pulse_lower_limit_fail;
 //assign spare2              = adc_convert;
 //assign spare3              = adc_sdo;
@@ -135,8 +137,8 @@ assign gpio4               = 0;
 
 
 
-assign status = {5'h0,rate_lower_limit_fail&enable_error_check,((pulse_upper_limit_fail | pulse_lower_limit_fail)&(enable_error_check)),1'h0};
-//assign status = {5'h0,rate_lower_limit_fail,(pulse_upper_limit_fail | pulse_lower_limit_fail),current_limit_fail};
+//assign status = {5'h0,rate_lower_limit_fail&enable_error_check,((pulse_upper_limit_fail | pulse_lower_limit_fail)&(enable_error_check)),1'h0};
+assign status = {5'h0,rate_lower_limit_fail,(pulse_upper_limit_fail | pulse_lower_limit_fail),current_limit_fail};
 
 assign prom_scl              = 0;
 assign prom_sda              = 0;
