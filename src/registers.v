@@ -78,14 +78,16 @@ assign stretch_on = stretch_wire;
 always @ (posedge clk or posedge rst) begin
 	if (rst) begin
 	    count <= 0;
-		pulse_width_lower_limit <= 32'h0002f8;    // 0x2F8=0x307-13
-		pulse_width_upper_limit <= 32'h000321;    // 0x321=0x314+13
-		rate_lower_limit <= 32'h013120;
-		drive_current_limit <= 16'h2750;
-		pwm_current_limit <= 16'h0258;
-		cw_current_limit <= 16'h0320;
-		pwm_mon_current_limit <= 16'h03a0;
-		cw_mon_current_limit <= 16'h03a0;
+		pulse_width_lower_limit <= 0;             
+	//	pulse_width_lower_limit <= 32'h0002f8;     // 0x2F8=0x307-13
+		pulse_width_upper_limit <= 32'h00035c;    //Pulse width limit, upper: 275µs
+		rate_lower_limit <= 32'h0112a9;           //Period limit: 22500µs; 1 step = 320ns
+		drive_current_limit <= 16'h2af8;          //Drive current: 5500mA
+		pwm_current_limit <= 16'h00a0;
+		cw_current_limit <= 16'h0140;
+		pwm_mon_current_limit <= 16'h00b0;
+		cw_mon_current_limit <= 16'h0200;
+		
 		static_control <=0;
 		dynamic_control <=0;
 	end else begin

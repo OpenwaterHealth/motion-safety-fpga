@@ -23,6 +23,7 @@ module adc_control(
     input              clk,
 
     input              laser_pulse,
+    input              clear_peak_power,
     input              adc_sdo,
 
     output             adc_sck,
@@ -45,8 +46,8 @@ parameter   IDLE        = 4'd0,
 reg [3:0] state=0,capture_state=0,tx_state=0;
 reg [7:0] convert_count;
 reg [7:0] count;
-reg [13:0] voltage_data;
-reg [13:0] current_data;
+reg [11:0] voltage_data;
+reg [11:0] current_data;
 reg [15:0] adc_voltage_data_temp,adc_voltage_data_value;
 reg [3:0] sck_count;
 reg [3:0] index;
@@ -70,8 +71,11 @@ begin
                     case (state)
                           IDLE : begin
                                     data_ready <= 0;
-                                    adc_convert <= 1;
-									if (laser_pulse) state <= CONVERT;
+                                   // adc_convert <= 1;
+									if (laser_pulse) begin
+										adc_convert <= 0;
+										state <= CONVERT;
+									end else adc_convert <= 1;
                                  end
                        CONVERT : begin
                                     if (convert_count > 20) begin
@@ -130,19 +134,19 @@ begin
                               end
                        DONE : begin //8
                                     adc_data_valid_temp <= 1;
-                                    adc_voltage_data_temp <= {2'h0,voltage_data};
+                                    adc_voltage_data_temp <= {4'h0,voltage_data};
                                     capture_state <= IDLE;
                               end
                 endcase
             end
 end
 
-always @(posedge clk,negedge rstn)
+always @(posedge clk,negedge rstn, posedge clear_peak_power)
 begin
-    if (!rstn) begin
+    if (!rstn | clear_peak_power) begin
         adc_data_valid_temp_d <= 0;     
         adc_voltage_data_value <= 0;     
-        adc_data_value <= 16'h3344;     
+        adc_data_value <= 16'h0;     
         adc_data_valid <= 0;     
     end else begin
 		           adc_data_valid_temp_d <= adc_data_valid_temp;

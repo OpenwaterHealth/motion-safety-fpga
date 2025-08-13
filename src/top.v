@@ -1,5 +1,18 @@
 `timescale 1ns / 1ps
 
+
+
+//Seed DDS: 0 mA (Limit 80mA)
+//Seed CW: 140 mA (Limit 140mA)
+
+//Pulse width limit, upper: 0µs
+//Pulse width limit, upper: 225µs
+//Period limit: 22500µs
+
+//CW Current: 160mA
+//PWM Current: 80mA
+
+
 module top( 
     input     rstn,                    // Pin 21
     input     system_reset_n,          // Pin 13
@@ -74,6 +87,7 @@ wire [15:0] dynamic_control;
 wire        over_current_limit;
 wire        laser_ready;
 wire        enable_error_check;
+wire        clear_peak_power;
 
 wire [15:0] pwm_mon_current_limit;
 wire [15:0] cw_mon_current_limit;
@@ -103,9 +117,9 @@ assign test_pass_led_n      = !static_control[8];
 assign test_fail_led_n      = !static_control[9];
 
 assign clear_fail           = dynamic_control[0];
+assign clear_peak_power     = dynamic_control[1];
 
-//assign TA_shutdown = ((pulse_lower_limit_fail | pulse_upper_limit_fail | rate_lower_limit_fail));
-assign TA_shutdown = ((pulse_lower_limit_fail | pulse_upper_limit_fail | rate_lower_limit_fail)) & (enable_error_check);
+assign TA_shutdown = (pulse_lower_limit_fail | pulse_upper_limit_fail | rate_lower_limit_fail);
 
 assign pulse_rate_status = {4'h0,pulse_lower_limit_fail,pulse_upper_limit_fail,rate_lower_limit_fail,0};
 assign current_status = {7'h0,current_limit_fail};
@@ -113,14 +127,16 @@ assign adc_status = {3'h0,laser_pulse,adc_pulse_width_upper_limit_fail,adc_pulse
 
 assign spare1              = laser_pulse;
 //assign spare1              = current_limit_fail;
-//assign spare4              = adc_sck;/assign spare2              = pulse_limit_check;
+//assign spare4              = adc_sck;
+//assign spare2              = clear_fail;
+//assign spare2              = pulse_limit_check;
 assign spare3              = pulse_lower_limit_fail;
 //assign spare2              = adc_convert;
 //assign spare3              = adc_sdo;
-assign spare4              = pulse_upper_limit_fail;
-//assign spare3              = edge_detect_2nd;
-//assign spare4              = edge_detect_1st;
-//assign spare3              = adc_sck;
+//assign spare4              = pulse_upper_limit_fail;
+assign spare4              = edge_detect_2nd;
+assign spare2              = edge_detect_1st;
+//assign spare4              = adc_sck;
 //assign spare2              = pulse_check;
 //assign spare4              = period_check;
 //assign spare4              = adc_data_valid;
@@ -135,8 +151,8 @@ assign gpio4               = 0;
 
 
 
-assign status = {5'h0,rate_lower_limit_fail&enable_error_check,((pulse_upper_limit_fail | pulse_lower_limit_fail)&(enable_error_check)),1'h0};
-//assign status = {5'h0,rate_lower_limit_fail,(pulse_upper_limit_fail | pulse_lower_limit_fail),current_limit_fail};
+//assign status = {5'h0,rate_lower_limit_fail&enable_error_check,((pulse_upper_limit_fail | pulse_lower_limit_fail)&(enable_error_check)),1'h0};
+assign status = {5'h0,rate_lower_limit_fail,(pulse_upper_limit_fail | pulse_lower_limit_fail),current_limit_fail};
 
 assign prom_scl              = 0;
 assign prom_sda              = 0;
@@ -179,7 +195,7 @@ i2c_slave_top i2c_slave_top (
 	.sda 					(sda),
 	
     .temperature_sensor     (16'h1122),
-    .revision               (8'h3),
+    .revision               (8'h4),
     .minor                  (8'h0),
     .major                  (8'h0),
     .ID                     (ID),
@@ -240,6 +256,7 @@ adc_control adc_control(
     .clk                    (clk_div2),
 
     .laser_pulse            (laser_pulse),
+    .clear_peak_power       (clear_peak_power),
     .adc_sdo                (adc_sdo),
 
     .adc_sck                (adc_sck),
