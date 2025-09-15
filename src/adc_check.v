@@ -8,6 +8,7 @@ module adc_check(
     input [15:0] adc_data,
 
     input [31:0] drive_current_limit,
+    input [31:0] power_peak_current_limit,
 
     output       current_limit_fail
 
