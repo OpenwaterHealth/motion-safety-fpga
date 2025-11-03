@@ -19,6 +19,10 @@ module registers(
     input [7:0]     	ID,
 
     input [15:0]  		adc_data,
+    input [15:0]  		adc_data_old_value,
+    input [15:0]  		peak_power_value,
+    input [15:0]  		cw_power_value,
+
     input [7:0]   		monitor_status,
     input [7:0]   		status,
 
@@ -28,8 +32,8 @@ module registers(
     output reg [15:0] drive_current_limit,
     output reg [15:0] pwm_current_limit,
     output reg [15:0] cw_current_limit,
-    output reg [15:0] pwm_mon_current_limit,
-    output reg [15:0] cw_mon_current_limit,
+  //  output reg [15:0] pwm_mon_current_limit,
+  //  output reg [15:0] cw_mon_current_limit,
     output reg [15:0] dynamic_control,
     output reg [15:0] static_control
 
@@ -79,20 +83,17 @@ always @ (posedge clk or posedge rst) begin
 	if (rst) begin
 	    count <= 0;
 		pulse_width_lower_limit <= 0;             
-	//	pulse_width_lower_limit <= 32'h0002f8;     // 0x2F8=0x307-13
 		pulse_width_upper_limit <= 32'h00035c;    //Pulse width limit, upper: 275µs
 		rate_lower_limit <= 32'h0112a9;           //Period limit: 22500µs; 1 step = 320ns
-		drive_current_limit <= 16'h2af8;          //Drive current: 5500mA
-		pwm_current_limit <= 16'h00a0;
-		cw_current_limit <= 16'h0140;
-		pwm_mon_current_limit <= 16'h00b0;
-		cw_mon_current_limit <= 16'h0200;
+		drive_current_limit <= 16'h6fa;           //Drive current: 5000mA
+		pwm_current_limit <= 16'h036b;
+		cw_current_limit <= 16'h036b;
 		
 		static_control <=0;
 		dynamic_control <=0;
 	end else begin
 		       if (dynamic_control > 0) begin
-				   if (count > 1) begin
+				   if (count > 2) begin
 					   count <= 0;
 					   dynamic_control <= 0;
 				   end else count <= count + 1;
@@ -118,10 +119,7 @@ always @ (posedge clk or posedge rst) begin
 						 8'h13 : pwm_current_limit[15:8]    <= i2c_to_data;
 					     8'h14 : cw_current_limit[7:0]      <= i2c_to_data;
 						 8'h15 : cw_current_limit[15:8]      <= i2c_to_data;
-					     8'h16 : pwm_mon_current_limit[7:0]  <= i2c_to_data;
-						 8'h17 : pwm_mon_current_limit[15:8] <= i2c_to_data;
-					    8'h18 : cw_mon_current_limit[7:0]   <= i2c_to_data;
-					    8'h19 : cw_mon_current_limit[15:8]  <= i2c_to_data;
+						
 					    8'h20 : static_control[7:0]  	     <= i2c_to_data;
 				   	    8'h21 : static_control[15:8] 		 <= i2c_to_data;
 					    8'h22 : dynamic_control[7:0]  	     <= i2c_to_data;
@@ -161,15 +159,13 @@ always @ (posedge clk or posedge rst) begin
 					  8'h12 : data_out <= pwm_current_limit[7:0];
 					  8'h13 : data_out <= pwm_current_limit[15:8];
 					  8'h14 : data_out <= cw_current_limit[7:0];
-					  8'h15 : data_out <= cw_current_limit[15:8];
-					  8'h16 : data_out <= pwm_mon_current_limit[7:0];
-					  8'h17 : data_out <= pwm_mon_current_limit[15:8];
-				     8'h18 : data_out <= cw_mon_current_limit[7:0];
-				     8'h19 : data_out <= cw_mon_current_limit[15:8];
-				     8'h1A : data_out <= temperature_sensor[7:0];
-					 8'h1B : data_out <= temperature_sensor[15:8];
-				     8'h1C : data_out <= adc_data[7:0];  //24
-					 8'h1D : data_out <= adc_data[15:8];
+					  8'h15 : data_out <= cw_current_limit[15:8];					  
+				     8'h18 : data_out <= adc_data[7:0];   // cw
+					 8'h19 : data_out <= adc_data[15:8];
+				     8'h1A : data_out <= cw_power_value[7:0];   
+					 8'h1B : data_out <= cw_power_value[15:8];
+				     8'h1C : data_out <= peak_power_value[7:0];  //24
+					 8'h1D : data_out <= peak_power_value[15:8];
 					 8'h1E : data_out <= monitor_status;
 					 8'h20 : data_out <= static_control[7:0];
 					 8'h21 : data_out <= static_control[15:8];

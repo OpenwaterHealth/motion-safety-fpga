@@ -31,6 +31,10 @@ module i2c_slave_top(
     input [7:0]   ID,
 
     input [15:0]  adc_data,
+    input [15:0]  adc_data_old_value,
+    input [15:0]  peak_power_value,
+    input [15:0]  cw_power_value,
+
     input [7:0]   monitor_status,
     input [7:0]   status,
 
@@ -38,10 +42,7 @@ module i2c_slave_top(
     output [31:0] pulse_width_upper_limit,
     output [31:0] rate_lower_limit,
     output [15:0] drive_current_limit,
-    output [15:0] pwm_current_limit,
     output [15:0] cw_current_limit,
-    output [15:0] pwm_mon_current_limit,
-    output [15:0] cw_mon_current_limit,
     output [15:0] dynamic_control,
     output [15:0] static_control            
 
@@ -89,19 +90,20 @@ registers registers(
 	.ID     				(ID),
 
 	.adc_data 		        (adc_data),
+	.adc_data_old_value     (adc_data_old_value),
+	.peak_power_value       (peak_power_value),
+	.cw_power_value         (cw_power_value),
+
 	.monitor_status 		(monitor_status),
 	.status 				(status),
 	
     .pulse_width_lower_limit (pulse_width_lower_limit),
     .pulse_width_upper_limit (pulse_width_upper_limit),
-    .rate_lower_limit     	 (rate_lower_limit),
-    .drive_current_limit    (drive_current_limit),
-    .pwm_current_limit      (pwm_current_limit),
-    .cw_current_limit       (cw_current_limit),
-    .pwm_mon_current_limit  (pwm_mon_current_limit),
-    .cw_mon_current_limit   (cw_mon_current_limit),
-    .dynamic_control 	    (dynamic_control),
-    .static_control 	    (static_control)
+    .rate_lower_limit     	  (rate_lower_limit),
+    .drive_current_limit     (drive_current_limit),
+    .cw_current_limit        (cw_current_limit),
+    .dynamic_control 	     (dynamic_control),
+    .static_control 	     (static_control)
 
 );
  
