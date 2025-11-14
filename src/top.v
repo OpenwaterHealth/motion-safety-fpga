@@ -86,7 +86,7 @@ wire [15:0] dynamic_control;
 wire        over_current_limit;
 wire        laser_ready;
 wire        enable_error_check;
-wire        clear_power_fail;
+wire        clear_power_fail,clear_peak_power;
 
 wire [15:0] adc_data_old_value;
 wire [15:0] peak_power_value;
@@ -125,6 +125,7 @@ assign test_fail_led_n      = !static_control[9];
 
 assign clear_fail           = dynamic_control[0];
 assign clear_power_fail     = dynamic_control[1] | dynamic_control[0];
+assign clear_peak_power     = dynamic_control[2];
 
 assign TA_shutdown = (pulse_lower_limit_fail | pulse_upper_limit_fail | rate_lower_limit_fail | power_peak_current_limit_fail);
 //assign TA_shutdown = (pulse_lower_limit_fail | pulse_upper_limit_fail | rate_lower_limit_fail);
@@ -215,15 +216,15 @@ i2c_slave_top i2c_slave_top (
 	.sda 					(sda),
 	
     .temperature_sensor     (16'h1122),
-    .revision               (8'h6),
+    .revision               (8'h7),
     .minor                  (8'h0),
     .major                  (8'h0),
     .ID                     (ID),
 
     .adc_data 		        (adc_data_value),
-    .adc_data_old_value    (adc_data_old_value),
-    .peak_power_value      (peak_power_value),
-    .cw_power_value        (cw_power_value),
+    .adc_data_old_value     (adc_data_old_value),
+    .peak_power_value       (peak_power_value),
+    .cw_power_value         (cw_power_value),
 
     .monitor_status 		(monitor_status),
     .status 				(status),
@@ -268,7 +269,8 @@ power_peak_check_top power_peak_check_top(
     .clk                    		(clk_div2),
     .laser_pulse            		(buf_laser_pulse),
     .clear_power_fail       	    (clear_power_fail),
-	
+    .clear_peak_power       	    (clear_peak_power),
+
     .adc_sdo       					(adc_sdo),
     .adc_sck       					(adc_sck),
     .adc_convert       				(adc_convert),

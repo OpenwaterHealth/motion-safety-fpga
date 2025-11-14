@@ -4,6 +4,7 @@ module power_peak_check_top(
     input            clk,
     input            laser_pulse,
     input            clear_power_fail,
+    input            clear_peak_power,
 
     input            adc_sdo,
 
@@ -30,6 +31,7 @@ adc_control adc_control(
     .rstn      			(rstn),
     .clk       			(clk),
     .laser_pulse 		(laser_pulse),
+    .clear_peak_power 	(clear_peak_power),
     .adc_sdo 			(adc_sdo),
     .adc_sck 			(adc_sck),
     .adc_convert 		(adc_convert),
