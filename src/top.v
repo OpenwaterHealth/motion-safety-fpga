@@ -216,8 +216,8 @@ i2c_slave_top i2c_slave_top (
 	.sda 					(sda),
 	
     .temperature_sensor     (16'h1122),
-    .revision               (8'h8),
-    .minor                  (8'h0),
+    .revision               (8'h0),
+    .minor                  (8'h1),
     .major                  (8'h0),
     .ID                     (ID),
 
