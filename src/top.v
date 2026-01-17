@@ -15,11 +15,10 @@
 
 module top( 
     input     rstn,                    // Pin 21
-    input     system_reset_n,          // Pin 13
+//    input     system_reset_n,          // Pin 13
 
     input     clk_50mhz,               // Pin 1
 	input     laser_pulse,             // Pin 7
-	input     pwr_good,                // Pin 14
 	input     select,                  // Pin 78    0=EE, 1=OPT
 	
 	output    laser_pwr_en1_n,      	// Pin 18
@@ -38,14 +37,10 @@ module top(
 	output    adc_convert,     	   // Pin 97
 	
     inout     scl,             	   // Pin 88
-    inout     sda,             	   // Pin 87
-   // inout     temp_scl,               // Pin 78
-  //  inout     temp_sda,               // Pin 75
-	
-    inout     prom_scl,               // Pin 52
-    inout     prom_sda,               // Pin 52
+    inout     sda,             	   // Pin 87	
 
-    output    heartbeat_n,            // Pin 49
+    output    heartbeat_n,            // Pin 45
+    output    heartbeat2_n,           // Pin 43
 		
 	inout     spare1,          	  // Pin 69
 	inout     spare2,          	  // Pin 71
@@ -106,6 +101,7 @@ wire        pulse_limit_check;
 wire        ID;
 
 assign ID = select ? 3 : 4;
+assign heartbeat2_n = heartbeat_n;
 
 ///////////////// reg 18 //////////////////////
 assign pulse_cw_select      = static_control[0];
@@ -166,14 +162,12 @@ assign gpio4               = 0;
 
 assign status = {5'h0,rate_lower_limit_fail,(pulse_upper_limit_fail | pulse_lower_limit_fail),power_peak_current_limit_fail};
 
-assign prom_scl              = 0;
-assign prom_sda              = 0;
 assign buf_clk              = clk_50mhz;
 
 wire clk_div2,clk_div4;
 wire buf_laser_pulse;
 
-assign buf_rstn = rstn  & system_reset_n;
+//assign buf_rstn = rstn  & system_reset_n;
 
 reset_generator reset_generator( 
     .rstn      (rstn),
@@ -216,8 +210,8 @@ i2c_slave_top i2c_slave_top (
 	.sda 					(sda),
 	
     .temperature_sensor     (16'h1122),
-    .revision               (8'h8),
-    .minor                  (8'h0),
+    .revision               (8'h1),
+    .minor                  (8'h1),
     .major                  (8'h0),
     .ID                     (ID),
 
