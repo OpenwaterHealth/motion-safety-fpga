@@ -33,7 +33,11 @@ module i2c_slave_top(
     input [15:0]  adc_data,
     input [15:0]  adc_data_old_value,
     input [15:0]  peak_power_value,
+    input [15:0]  peak_power_min,
+    input [15:0]  peak_power_max,
     input [15:0]  cw_power_value,
+    input [15:0]  peak_power_value_capture,
+    input [15:0]  drive_current_limit_capture,
 
     input [7:0]   monitor_status,
     input [7:0]   status,
@@ -44,7 +48,8 @@ module i2c_slave_top(
     output [15:0] drive_current_limit,
     output [15:0] cw_current_limit,
     output [15:0] dynamic_control,
-    output [15:0] static_control            
+    output [15:0] static_control,            
+    output         peak_power_read
 
 );
 
@@ -92,7 +97,11 @@ registers registers(
 	.adc_data 		        (adc_data),
 	.adc_data_old_value     (adc_data_old_value),
 	.peak_power_value       (peak_power_value),
+	.peak_power_min         (peak_power_min),
+	.peak_power_max         (peak_power_max),
 	.cw_power_value         (cw_power_value),
+    .peak_power_value_capture    (peak_power_value_capture),
+    .drive_current_limit_capture (drive_current_limit_capture),
 
 	.monitor_status 		(monitor_status),
 	.status 				(status),
@@ -103,7 +112,8 @@ registers registers(
     .drive_current_limit     (drive_current_limit),
     .cw_current_limit        (cw_current_limit),
     .dynamic_control 	     (dynamic_control),
-    .static_control 	     (static_control)
+    .static_control 	     (static_control),
+    .peak_power_read 	     (peak_power_read)
 
 );
  
