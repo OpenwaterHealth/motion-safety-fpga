@@ -21,7 +21,11 @@ module registers(
     input [15:0]  		adc_data,
     input [15:0]  		adc_data_old_value,
     input [15:0]  		peak_power_value,
+    input [15:0]  		peak_power_min,
+    input [15:0]  		peak_power_max,
     input [15:0]  		cw_power_value,
+    input [15:0]       peak_power_value_capture,
+    input [15:0]       drive_current_limit_capture,
 
     input [7:0]   		monitor_status,
     input [7:0]   		status,
@@ -35,7 +39,8 @@ module registers(
   //  output reg [15:0] pwm_mon_current_limit,
   //  output reg [15:0] cw_mon_current_limit,
     output reg [15:0] dynamic_control,
-    output reg [15:0] static_control
+    output reg [15:0] static_control,
+    output             peak_power_read
 
 )/* synthesis syn_preserve=1 */;
 	   
@@ -76,6 +81,8 @@ assign	data_to_i2c = (r_w) ? data_out : 8'h00;
 assign	wr_en_i = ((data_vld) && (~r_w) && (byte_cnt == 1)) ? 1'b1 : 1'b0; // Write Enable control
 assign stretch_on = stretch_wire;
 
+assign peak_power_read = (r_w & (addr_i == 8'h1C |addr_i == 8'h1D)) ? 1 : 0;
+
 /**********************************************************************************
 * Simple Write Registers
 **********************************************************************************/
@@ -98,7 +105,6 @@ always @ (posedge clk or posedge rst) begin
 					   dynamic_control <= 0;
 				   end else count <= count + 1;
 			   end
-			   
 			   if (wr_en_i) begin
 				   case (addr_i)
 						 8'h0 : pulse_width_lower_limit[7:0]      <= i2c_to_data;
@@ -140,7 +146,7 @@ always @ (posedge clk or posedge rst) begin
 		end
 	else 
 		begin
-			   status_d1 <= status;
+			    status_d1 <= status;
 		        case (addr_i)
 					  8'h0 : data_out <= pulse_width_lower_limit[7:0];
 					  8'h1 : data_out <= pulse_width_lower_limit[15:8];
@@ -176,6 +182,16 @@ always @ (posedge clk or posedge rst) begin
 					 8'h26 : data_out <= minor;
 					 8'h27 : data_out <= major;
 					 8'h28 : data_out <= ID;
+					 
+				     8'h29 : data_out <= peak_power_min[7:0];  
+					 8'h2A : data_out <= peak_power_min[15:8];
+				     8'h2B : data_out <= peak_power_max[7:0];  
+					 8'h2C : data_out <= peak_power_max[15:8];
+					 
+				     8'h2D : data_out <= peak_power_value_capture[7:0];  
+					 8'h2E : data_out <= peak_power_value_capture[15:8];
+				     8'h2F : data_out <= drive_current_limit_capture[7:0];  
+					 8'h30 : data_out <= drive_current_limit_capture[15:8];
 
 					 default : data_out <= 0;
 				endcase

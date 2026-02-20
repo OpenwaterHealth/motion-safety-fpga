@@ -15,11 +15,10 @@
 
 module top( 
     input     rstn,                    // Pin 21
-    input     system_reset_n,          // Pin 13
+//    input     system_reset_n,          // Pin 13
 
     input     clk_50mhz,               // Pin 1
 	input     laser_pulse,             // Pin 7
-	input     pwr_good,                // Pin 14
 	input     select,                  // Pin 78    0=EE, 1=OPT
 	
 	output    laser_pwr_en1_n,      	// Pin 18
@@ -38,14 +37,10 @@ module top(
 	output    adc_convert,     	   // Pin 97
 	
     inout     scl,             	   // Pin 88
-    inout     sda,             	   // Pin 87
-   // inout     temp_scl,               // Pin 78
-  //  inout     temp_sda,               // Pin 75
-	
-    inout     prom_scl,               // Pin 52
-    inout     prom_sda,               // Pin 52
+    inout     sda,             	   // Pin 87	
 
-    output    heartbeat_n,            // Pin 49
+    output    heartbeat_n,            // Pin 45
+    output    heartbeat2_n,           // Pin 43
 		
 	inout     spare1,          	  // Pin 69
 	inout     spare2,          	  // Pin 71
@@ -76,6 +71,9 @@ wire pulse_lower_limit_fail,adc_pulse_width_lower_limit_fail;
 wire pulse_upper_limit_fail,adc_pulse_width_upper_limit_fail;
 wire rate_lower_limit_fail,adc_rate_lower_limit_fail;
 wire width_limit_window;
+wire peak_power_update;
+wire [15:0] peak_power_value_capture;
+wire [15:0] drive_current_limit_capture;
 
 wire [15:0] temperature_sensor;
 wire [15:0] drive_current;
@@ -87,6 +85,9 @@ wire        over_current_limit;
 wire        laser_ready;
 wire        enable_error_check;
 wire        clear_power_fail,clear_peak_power;
+wire [15:0] peak_power_min;
+wire [15:0] peak_power_max;
+wire         peak_power_read;
 
 wire [15:0] adc_data_old_value;
 wire [15:0] peak_power_value;
@@ -106,6 +107,7 @@ wire        pulse_limit_check;
 wire        ID;
 
 assign ID = select ? 3 : 4;
+assign heartbeat2_n = heartbeat_n;
 
 ///////////////// reg 18 //////////////////////
 assign pulse_cw_select      = static_control[0];
@@ -166,14 +168,12 @@ assign gpio4               = 0;
 
 assign status = {5'h0,rate_lower_limit_fail,(pulse_upper_limit_fail | pulse_lower_limit_fail),power_peak_current_limit_fail};
 
-assign prom_scl              = 0;
-assign prom_sda              = 0;
 assign buf_clk              = clk_50mhz;
 
 wire clk_div2,clk_div4;
 wire buf_laser_pulse;
 
-assign buf_rstn = rstn  & system_reset_n;
+//assign buf_rstn = rstn  & system_reset_n;
 
 reset_generator reset_generator( 
     .rstn      (rstn),
@@ -216,15 +216,20 @@ i2c_slave_top i2c_slave_top (
 	.sda 					(sda),
 	
     .temperature_sensor     (16'h1122),
-    .revision               (8'h8),
-    .minor                  (8'h0),
+    .revision               (8'h2),
+    .minor                  (8'h1),
     .major                  (8'h0),
     .ID                     (ID),
 
     .adc_data 		        (adc_data_value),
     .adc_data_old_value     (adc_data_old_value),
     .peak_power_value       (peak_power_value),
-    .cw_power_value         (cw_power_value),
+	.peak_power_min         (peak_power_min),
+    .peak_power_max         (peak_power_max),
+
+    .cw_power_value              (cw_power_value),
+    .peak_power_value_capture    (peak_power_value_capture),
+    .drive_current_limit_capture (drive_current_limit_capture),
 
     .monitor_status 		(monitor_status),
     .status 				(status),
@@ -235,8 +240,8 @@ i2c_slave_top i2c_slave_top (
     .drive_current_limit    	(drive_current_limit),
     .cw_current_limit      		(cw_current_limit),
     .dynamic_control 	   		(dynamic_control),
-    .static_control 	   		(static_control)
-
+    .static_control 	   		(static_control),
+    .peak_power_read 	   		(peak_power_read)
 );
     
 limit_check limit_check( 
@@ -270,6 +275,7 @@ power_peak_check_top power_peak_check_top(
     .laser_pulse            		(buf_laser_pulse),
     .clear_power_fail       	    (clear_power_fail),
     .clear_peak_power       	    (clear_peak_power),
+    .peak_power_read 	   		    (peak_power_read),
 
     .adc_sdo       					(adc_sdo),
     .adc_sck       					(adc_sck),
@@ -278,11 +284,16 @@ power_peak_check_top power_peak_check_top(
     .adc_data_value       		    (adc_data_value),
     .adc_data_old_value       		(adc_data_old_value),
     .peak_power_value       		(peak_power_value),
+    .peak_power_min       		    (peak_power_min),
+    .peak_power_max       		    (peak_power_max),
     .cw_power_value       		    (cw_power_value),
 
     .cw_current_limit               (cw_current_limit),
     .cw_current_limit_fail          (cw_current_limit_fail), 
     .drive_current_limit            (drive_current_limit),
+	.peak_power_value_capture       (peak_power_value_capture),
+    .drive_current_limit_capture    (drive_current_limit_capture),
+
     .power_peak_current_limit_fail  (power_peak_current_limit_fail),
     .start_timer                    (start_timer),
     .laser_pulse_delay              (laser_pulse_delay)

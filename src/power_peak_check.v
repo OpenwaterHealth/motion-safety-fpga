@@ -14,6 +14,8 @@ module power_peak_check(
 
     input [15:0]  cw_current_limit,
     input [15:0]  drive_current_limit,
+    output reg [15:0]  peak_power_value_capture,
+    output reg [15:0]  drive_current_limit_capture,
 
     output reg    cw_current_limit_fail,
     output reg    power_peak_current_limit_fail
@@ -37,7 +39,9 @@ always @(posedge clk,negedge rstn)
 begin
     if (!rstn) begin
         drive_current_limit_d1 <= 0;     
-        drive_current_limit_d2 <= 0;     
+        drive_current_limit_d2 <= 0;
+        peak_power_value_capture <= 0;
+        drive_current_limit_capture <= 0;		
         cw_current_limit_d1 <= 0;     
         cw_current_limit_d2 <= 0;     
         cw_power_value_d1 <= 0;     
@@ -69,12 +73,16 @@ begin
 				   	   CHECK : begin
 									if (peak_power_value > drive_current_limit_d1) begin
 										state <= DONE;
+										peak_power_value_capture <= peak_power_value;
+										drive_current_limit_capture <= drive_current_limit_d1;
 										power_peak_current_limit_fail <= 1;
 									end
 							   end
 						DONE : begin
 									if (clear_power_fail) begin
 										state <= IDLE;
+										peak_power_value_capture <= 0;
+										drive_current_limit_capture <= 0;
 										cw_current_limit_fail <= 0;
 										power_peak_current_limit_fail <= 0;
 									end
