@@ -26,6 +26,7 @@ module adc_control(
     input              clear_peak_power,
     input              adc_sdo,
     input              peak_power_read,
+    input [7:0]       adc_sample,
 
     output             adc_sck,
     output reg         adc_convert,
@@ -65,7 +66,7 @@ reg [13:0] current_data;
 reg [15:0] final_voltage_data_d2,final_voltage_data_d1,final_voltage_data,final_voltage_data_old;
 reg [3:0] sck_count;
 reg [3:0] index;
-reg [7:0] cycle_count;
+reg [7:0] cycle_count,adc_sample_d;
 reg [15:0] wait_timer,sample_count;
 reg [15:0] voltage_data_value_old;
 reg [15:0] power_up_count;
@@ -95,6 +96,7 @@ end
 always @(posedge clk,negedge rstn)
 begin
     if (!rstn) begin
+		adc_sample_d <= 0;
 		power_up_count <= 0;
         adc_convert <= 0;     
         convert_count <= 0; 
@@ -117,6 +119,8 @@ begin
 		      laser_pulse_d3 <= laser_pulse_d2;
 		      laser_pulse_d4 <= laser_pulse_d3;
 		      laser_pulse_d5 <= laser_pulse_d4;
+			  adc_sample_d <= adc_sample;
+			  
                     case (state)
                           PWRUP : begin
 									if (power_up_count > 16'hfff0) begin
@@ -168,7 +172,7 @@ begin
                                              end
                                  end
                         REPEAT : begin
-									if (sample_count > SAMPLE) begin
+									if (sample_count > adc_sample_d) begin
 										sample_count <= 0;
 										state <= DONE;
 									end else begin
