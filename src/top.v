@@ -16,6 +16,9 @@
 module top( 
     input     rstn,                    // Pin 21
 //    input     system_reset_n,          // Pin 13
+	
+	input 	  scl_cfg,
+	inout	  sda_cfg,
 
     input     clk_50mhz,               // Pin 1
 	input     laser_pulse,             // Pin 7
@@ -194,6 +197,30 @@ PLL PLL(
     .CLKOS     (clk_div4),
     .LOCK      ( )
 );
+	
+efb_i2c efb_inst (
+	// Wishbone clock (MANDATORY)
+	.wb_clk_i(buf_clk),
+	.wb_rst_i(1'b0),
+
+	// Wishbone interface (unused, but must exist)
+	.wb_stb_i(1'b0),
+	.wb_cyc_i(1'b0),
+	.wb_we_i(1'b0),
+	.wb_adr_i(8'b0),
+	.wb_dat_i(8'b0),
+
+	// Outputs (unused)
+	.wb_ack_o(),
+	.wb_dat_o(),
+	.i2c1_irqo(),
+
+	// I2C pins
+	.i2c1_scl(scl_cfg),
+	.i2c1_sda(sda_cfg)
+
+	// SPI / Timer / UART ports can be left unconnected
+);
 
 synchronizer synchronizer( 
     .rstn      	(reset_n),
@@ -216,7 +243,7 @@ i2c_slave_top i2c_slave_top (
 	.sda 					(sda),
 	
     .temperature_sensor     (16'h1122),
-    .revision               (8'h2),
+    .revision               (8'h4),
     .minor                  (8'h1),
     .major                  (8'h0),
     .ID                     (ID),

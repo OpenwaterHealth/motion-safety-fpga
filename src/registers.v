@@ -30,6 +30,7 @@ module registers(
     input [7:0]   		monitor_status,
     input [7:0]   		status,
 
+    output reg [7:0]  adc_sample,
     output reg [31:0] pulse_width_lower_limit,
     output reg [31:0] pulse_width_upper_limit,
     output reg [31:0] rate_lower_limit,
@@ -95,6 +96,7 @@ always @ (posedge clk or posedge rst) begin
 		drive_current_limit <= 16'h0a80;           //Drive current: 5000mA
 		pwm_current_limit <= 16'h036b;
 		cw_current_limit <= 16'h036b;
+		adc_sample <= 'hA0;
 		
 		static_control <=0;
 		dynamic_control <=0;
@@ -121,10 +123,11 @@ always @ (posedge clk or posedge rst) begin
 					     8'hB : rate_lower_limit[31:24] 		   <= i2c_to_data;
 						 8'h10 : drive_current_limit[7:0]    <= i2c_to_data;
 						 8'h11 : drive_current_limit[15:8]   <= i2c_to_data;
-						 8'h12 : pwm_current_limit[7:0]     <= i2c_to_data;
-						 8'h13 : pwm_current_limit[15:8]    <= i2c_to_data;
-					     8'h14 : cw_current_limit[7:0]      <= i2c_to_data;
+						 8'h12 : pwm_current_limit[7:0]      <= i2c_to_data;
+						 8'h13 : pwm_current_limit[15:8]     <= i2c_to_data;
+					     8'h14 : cw_current_limit[7:0]       <= i2c_to_data;
 						 8'h15 : cw_current_limit[15:8]      <= i2c_to_data;
+						 8'h16 : adc_sample[15:8]            <= i2c_to_data;
 						
 					    8'h20 : static_control[7:0]  	     <= i2c_to_data;
 				   	    8'h21 : static_control[15:8] 		 <= i2c_to_data;
@@ -166,6 +169,7 @@ always @ (posedge clk or posedge rst) begin
 					  8'h13 : data_out <= pwm_current_limit[15:8];
 					  8'h14 : data_out <= cw_current_limit[7:0];
 					  8'h15 : data_out <= cw_current_limit[15:8];					  
+					  8'h16 : data_out <= adc_sample;					  
 				     8'h18 : data_out <= adc_data[7:0];   // cw
 					 8'h19 : data_out <= adc_data[15:8];
 				     8'h1A : data_out <= cw_power_value[7:0];   
