@@ -42,6 +42,13 @@ module i2c_slave_top(
     input [7:0]   monitor_status,
     input [7:0]   status,
 
+    // Calibration defaults from the UFM (see ufm_config.v)
+    input         cfg_we,
+    input [7:0]   cfg_addr,
+    input [7:0]   cfg_data,
+    input [7:0]   cfg_status,
+    input [7:0]   cfg_version,
+
     output [31:0] pulse_width_lower_limit,
     output [31:0] pulse_width_upper_limit,
     output [31:0] rate_lower_limit,
@@ -105,7 +112,13 @@ registers registers(
 
 	.monitor_status 		(monitor_status),
 	.status 				(status),
-	
+
+	.cfg_we 				(cfg_we),
+	.cfg_addr 				(cfg_addr),
+	.cfg_data 				(cfg_data),
+	.cfg_status 			(cfg_status),
+	.cfg_version 			(cfg_version),
+
     .pulse_width_lower_limit (pulse_width_lower_limit),
     .pulse_width_upper_limit (pulse_width_upper_limit),
     .rate_lower_limit     	  (rate_lower_limit),

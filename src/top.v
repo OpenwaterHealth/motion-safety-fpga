@@ -89,6 +89,14 @@ wire [15:0] peak_power_min;
 wire [15:0] peak_power_max;
 wire         peak_power_read;
 
+wire        cfg_we;
+wire [7:0]  cfg_addr;
+wire [7:0]  cfg_data;
+wire        cfg_done;
+wire        cfg_valid;
+wire [7:0]  cfg_status;
+wire [7:0]  cfg_version;
+
 wire [15:0] adc_data_old_value;
 wire [15:0] peak_power_value;
 wire [15:0] cw_power_value;
@@ -208,6 +216,29 @@ heart_beat heart_beat(
     .heartbeat (heartbeat_n)
 );
 
+// Reads the post-calibration limits out of the User Flash Memory once at boot
+// and hands them to registers.v.  Runs on clk_div2 so there is no clock domain
+// crossing into the register file.  Nothing here can enable the laser: only the
+// limit values are restored, static_control always comes up from its reset state.
+ufm_config #(
+    .UFM_PAGE   (0),
+    .BOOT_DELAY (25000),      // ~1 ms  @ 25 MHz
+    .EN_DELAY   (250),        // ~10 us @ 25 MHz
+    .TIMEOUT    (2500000)     // ~100 ms @ 25 MHz
+) ufm_config (
+    .clk        (clk_div2),
+    .rstn       (rstn),
+
+    .cfg_we     (cfg_we),
+    .cfg_addr   (cfg_addr),
+    .cfg_data   (cfg_data),
+
+    .cfg_done   (cfg_done),
+    .cfg_valid  (cfg_valid),
+    .cfg_version(cfg_version),
+    .cfg_status (cfg_status)
+);
+
 i2c_slave_top i2c_slave_top (
 	.rstn 					(rstn),
 	.clk 					(clk_div2),
@@ -233,7 +264,13 @@ i2c_slave_top i2c_slave_top (
 
     .monitor_status 		(monitor_status),
     .status 				(status),
-	
+
+    .cfg_we 				(cfg_we),
+    .cfg_addr 				(cfg_addr),
+    .cfg_data 				(cfg_data),
+    .cfg_status 			(cfg_status),
+    .cfg_version 			(cfg_version),
+
     .pulse_width_lower_limit 	(pulse_width_lower_limit),
     .pulse_width_upper_limit 	(pulse_width_upper_limit),
     .rate_lower_limit     	 	(rate_lower_limit),

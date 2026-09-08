@@ -30,6 +30,16 @@ module registers(
     input [7:0]   		monitor_status,
     input [7:0]   		status,
 
+    // Calibration defaults loaded out of the User Flash Memory at boot.  The
+    // loader writes bytes through the same address decode the I2C master uses,
+    // so restoring a value costs no more logic than writing it.  See
+    // ufm_config.v for the record layout.
+    input		   		cfg_we,
+    input [7:0]   		cfg_addr,
+    input [7:0]   		cfg_data,
+    input [7:0]   		cfg_status,
+    input [7:0]   		cfg_version,
+
     output reg [31:0] pulse_width_lower_limit,
     output reg [31:0] pulse_width_upper_limit,
     output reg [31:0] rate_lower_limit,
@@ -48,6 +58,9 @@ module registers(
 //RAM Signals
 reg [7:0]      data_out;
 wire	 		wr_en_i;			
+wire            wr_en_any;
+wire [7:0]      wr_addr;
+wire [7:0]      wr_data;
 
 //Address Increment Signals
 wire[7:0]		addr_i;			
@@ -79,6 +92,13 @@ parameter		stretch_duration	=	4000;	        // Define the duration of the stretc
 **********************************************************************************/
 assign	data_to_i2c = (r_w) ? data_out : 8'h00;
 assign	wr_en_i = ((data_vld) && (~r_w) && (byte_cnt == 1)) ? 1'b1 : 1'b0; // Write Enable control
+
+// The I2C master and the UFM loader share one write decode.  I2C wins on the
+// unlikely same-cycle collision: an explicit host write must never be lost to a
+// boot time restore.
+assign  wr_en_any = wr_en_i | cfg_we;
+assign  wr_addr   = wr_en_i ? addr_i      : cfg_addr;
+assign  wr_data   = wr_en_i ? i2c_to_data : cfg_data;
 assign stretch_on = stretch_wire;
 
 assign peak_power_read = (r_w & (addr_i == 8'h1C |addr_i == 8'h1D)) ? 1 : 0;
@@ -105,31 +125,31 @@ always @ (posedge clk or posedge rst) begin
 					   dynamic_control <= 0;
 				   end else count <= count + 1;
 			   end
-			   if (wr_en_i) begin
-				   case (addr_i)
-						 8'h0 : pulse_width_lower_limit[7:0]      <= i2c_to_data;
-					     8'h1 : pulse_width_lower_limit[15:8]     <= i2c_to_data;
-						 8'h2 : pulse_width_lower_limit[23:16]    <= i2c_to_data;
-					     8'h3 : pulse_width_lower_limit[31:24]    <= i2c_to_data;
-					     8'h4 : pulse_width_upper_limit[7:0]      <= i2c_to_data;
-					     8'h5 : pulse_width_upper_limit[15:8]     <= i2c_to_data;
-					     8'h6 : pulse_width_upper_limit[23:16]    <= i2c_to_data;
-					     8'h7 : pulse_width_upper_limit[31:24]    <= i2c_to_data;
-						 8'h8 : rate_lower_limit[7:0]  		   <= i2c_to_data;
-					     8'h9 : rate_lower_limit[15:8] 		   <= i2c_to_data;
-					     8'hA : rate_lower_limit[23:16] 		   <= i2c_to_data;
-					     8'hB : rate_lower_limit[31:24] 		   <= i2c_to_data;
-						 8'h10 : drive_current_limit[7:0]    <= i2c_to_data;
-						 8'h11 : drive_current_limit[15:8]   <= i2c_to_data;
-						 8'h12 : pwm_current_limit[7:0]     <= i2c_to_data;
-						 8'h13 : pwm_current_limit[15:8]    <= i2c_to_data;
-					     8'h14 : cw_current_limit[7:0]      <= i2c_to_data;
-						 8'h15 : cw_current_limit[15:8]      <= i2c_to_data;
+			   if (wr_en_any) begin
+				   case (wr_addr)
+						 8'h0 : pulse_width_lower_limit[7:0]      <= wr_data;
+					     8'h1 : pulse_width_lower_limit[15:8]     <= wr_data;
+						 8'h2 : pulse_width_lower_limit[23:16]    <= wr_data;
+					     8'h3 : pulse_width_lower_limit[31:24]    <= wr_data;
+					     8'h4 : pulse_width_upper_limit[7:0]      <= wr_data;
+					     8'h5 : pulse_width_upper_limit[15:8]     <= wr_data;
+					     8'h6 : pulse_width_upper_limit[23:16]    <= wr_data;
+					     8'h7 : pulse_width_upper_limit[31:24]    <= wr_data;
+						 8'h8 : rate_lower_limit[7:0]  		   <= wr_data;
+					     8'h9 : rate_lower_limit[15:8] 		   <= wr_data;
+					     8'hA : rate_lower_limit[23:16] 		   <= wr_data;
+					     8'hB : rate_lower_limit[31:24] 		   <= wr_data;
+						 8'h10 : drive_current_limit[7:0]    <= wr_data;
+						 8'h11 : drive_current_limit[15:8]   <= wr_data;
+						 8'h12 : pwm_current_limit[7:0]     <= wr_data;
+						 8'h13 : pwm_current_limit[15:8]    <= wr_data;
+					     8'h14 : cw_current_limit[7:0]      <= wr_data;
+						 8'h15 : cw_current_limit[15:8]      <= wr_data;
 						
-					    8'h20 : static_control[7:0]  	     <= i2c_to_data;
-				   	    8'h21 : static_control[15:8] 		 <= i2c_to_data;
-					    8'h22 : dynamic_control[7:0]  	     <= i2c_to_data;
-					    8'h23 : dynamic_control[15:8] 	     <= i2c_to_data;
+					    8'h20 : static_control[7:0]  	     <= wr_data;
+				   	    8'h21 : static_control[15:8] 		 <= wr_data;
+					    8'h22 : dynamic_control[7:0]  	     <= wr_data;
+					    8'h23 : dynamic_control[15:8] 	     <= wr_data;
 					endcase
 				end
 			end
@@ -192,6 +212,9 @@ always @ (posedge clk or posedge rst) begin
 					 8'h2E : data_out <= peak_power_value_capture[15:8];
 				     8'h2F : data_out <= drive_current_limit_capture[7:0];  
 					 8'h30 : data_out <= drive_current_limit_capture[15:8];
+
+					 8'h31 : data_out <= cfg_status;    // UFM calibration load status
+					 8'h32 : data_out <= cfg_version;   // UFM record layout version
 
 					 default : data_out <= 0;
 				endcase
