@@ -92,6 +92,23 @@ wire [15:0] peak_power_min;
 wire [15:0] peak_power_max;
 wire         peak_power_read;
 
+wire        efb_cyc;
+wire        efb_stb;
+wire        efb_we;
+wire [7:0]  efb_adr;
+wire [7:0]  efb_dat_w;
+wire [7:0]  efb_dat_r;
+wire        efb_ack;
+reg         efb_wb_rst;
+
+wire        cfg_we;
+wire [7:0]  cfg_addr;
+wire [7:0]  cfg_data;
+wire        cfg_done;
+wire        cfg_valid;
+wire [7:0]  cfg_status;
+wire [7:0]  cfg_version;
+
 wire [15:0] adc_data_old_value;
 wire [15:0] peak_power_value;
 wire [15:0] cw_power_value;
@@ -198,28 +215,36 @@ PLL PLL(
     .LOCK      ( )
 );
 	
+always @(posedge buf_clk or negedge rstn)
+    if (!rstn) efb_wb_rst <= 1'b1;
+    else       efb_wb_rst <= 1'b0;
+
+// The one EFB this device has.  It carries both the hardened primary I2C
+// configuration port used for firmware updates over scl_cfg/sda_cfg and, since
+// UFM was enabled on it, the User Flash Memory that ufm_config reads the
+// calibration record out of.  A second EFB is not possible: map rejects it with
+// "Design has 2 EFBs. Device only allows 1 EFB."
 efb_i2c efb_inst (
-	// Wishbone clock (MANDATORY)
+	// Wishbone clock (MANDATORY).  50 MHz, which is what the I2C clock divider
+	// in efb_i2c.v was generated for - do not change it without regenerating.
 	.wb_clk_i(buf_clk),
-	.wb_rst_i(1'b0),
+	.wb_rst_i(efb_wb_rst),
 
-	// Wishbone interface (unused, but must exist)
-	.wb_stb_i(1'b0),
-	.wb_cyc_i(1'b0),
-	.wb_we_i(1'b0),
-	.wb_adr_i(8'b0),
-	.wb_dat_i(8'b0),
+	// Wishbone interface, mastered by ufm_config
+	.wb_stb_i(efb_stb),
+	.wb_cyc_i(efb_cyc),
+	.wb_we_i(efb_we),
+	.wb_adr_i(efb_adr),
+	.wb_dat_i(efb_dat_w),
 
-	// Outputs (unused)
-	.wb_ack_o(),
-	.wb_dat_o(),
+	.wb_ack_o(efb_ack),
+	.wb_dat_o(efb_dat_r),
 	.i2c1_irqo(),
+	.wbc_ufm_irq(),
 
 	// I2C pins
 	.i2c1_scl(scl_cfg),
 	.i2c1_sda(sda_cfg)
-
-	// SPI / Timer / UART ports can be left unconnected
 );
 
 synchronizer synchronizer( 
@@ -233,6 +258,38 @@ heart_beat heart_beat(
     .rstn      (rstn),
     .clk       (clk_div2),
     .heartbeat (heartbeat_n)
+);
+
+// Reads the post-calibration limits out of the User Flash Memory once at boot
+// and hands them to registers.v.  Runs on clk_div2 so there is no clock domain
+// crossing into the register file.  Nothing here can enable the laser: only the
+// limit values are restored, static_control always comes up from its reset state.
+ufm_config #(
+    .UFM_PAGE   (0),
+    .BOOT_DELAY (50000),     // ~1 ms  @ 50 MHz
+    .EN_DELAY   (500),       // ~10 us @ 50 MHz
+    .TIMEOUT    (5000000)    // ~100 ms @ 50 MHz
+) ufm_config (
+    .wb_clk     (buf_clk),   // EFB WISHBONE domain, 50 MHz
+    .reg_clk    (clk_div2),  // register file domain, 25 MHz
+    .rstn       (rstn),
+
+    .wb_cyc_o   (efb_cyc),
+    .wb_stb_o   (efb_stb),
+    .wb_we_o    (efb_we),
+    .wb_adr_o   (efb_adr),
+    .wb_dat_o   (efb_dat_w),
+    .wb_dat_i   (efb_dat_r),
+    .wb_ack_i   (efb_ack),
+
+    .cfg_we     (cfg_we),
+    .cfg_addr   (cfg_addr),
+    .cfg_data   (cfg_data),
+
+    .cfg_done   (cfg_done),
+    .cfg_valid  (cfg_valid),
+    .cfg_version(cfg_version),
+    .cfg_status (cfg_status)
 );
 
 i2c_slave_top i2c_slave_top (
@@ -260,7 +317,13 @@ i2c_slave_top i2c_slave_top (
 
     .monitor_status 		(monitor_status),
     .status 				(status),
-	
+
+    .cfg_we 				(cfg_we),
+    .cfg_addr 				(cfg_addr),
+    .cfg_data 				(cfg_data),
+    .cfg_status 			(cfg_status),
+    .cfg_version 			(cfg_version),
+
     .pulse_width_lower_limit 	(pulse_width_lower_limit),
     .pulse_width_upper_limit 	(pulse_width_upper_limit),
     .rate_lower_limit     	 	(rate_lower_limit),

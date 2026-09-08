@@ -28,3 +28,8 @@ LOCATE COMP "adc_sdo" SITE "98" ;
 LOCATE COMP "laser_pulse" SITE "7" ;
 LOCATE COMP "select" SITE "78" ;
 LOCATE COMP "heartbeat2_n" SITE "45" ;
+
+# Keep the configuration bitstream out of the UFM sector.  CFG is the Diamond
+# default, but it is stated here because the calibration record in the UFM would
+# be overwritten if the bitstream were ever allowed to overflow into it.
+SYSCONFIG CONFIGURATION=CFG ;
