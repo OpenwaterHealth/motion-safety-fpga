@@ -84,7 +84,7 @@ module ufm_config #(
     parameter integer UFM_PAGE   = 0,        // first UFM page of the record
     parameter integer BOOT_DELAY = 25000,    // ~1 ms @ 25 MHz before touching the EFB, 16 bit
     parameter integer EN_DELAY   = 250,      // ~10 us @ 25 MHz, TN-02155 wants >= 5 us
-    parameter integer TIMEOUT    = 2500000   // ~100 ms @ 25 MHz watchdog, 22 bit
+    parameter integer TIMEOUT    = 2500000   // ~100 ms @ 25 MHz watchdog; must fit in wdog, see below
 )(
     input             wb_clk,                // EFB WISHBONE clock, 50 MHz
     input             reg_clk,               // register file clock, 25 MHz
@@ -253,7 +253,7 @@ reg        pass;                    // 0 = check the record, 1 = write it out
 reg [4:0]  tx_idx;
 reg [5:0]  rx_cnt;
 reg [15:0] delay_cnt;
-reg [21:0] wdog;
+reg [23:0] wdog;                    // must hold TIMEOUT; 24 bits covers 335 ms @ 50 MHz
 
 reg        valid_wb;                // sequencer's own copy, crossed over below
 reg [7:0]  ver_wb;

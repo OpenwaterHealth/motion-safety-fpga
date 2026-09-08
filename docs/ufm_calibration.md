@@ -127,8 +127,36 @@ FPGA reads them. The tool handles that. Getting it wrong cannot damage anything:
 the magic fails, the board keeps its hard-coded defaults, and `0x31` reads
 `0x02`.
 
-Then use the Diamond Deployment Tool to build a UFM JEDEC from the `.mem`, and
-Diamond Programmer to write it.
+Then get the record into a JEDEC. The Deployment Tool cannot build one from a
+`.mem` — `ddtcmd` only converts an existing JEDEC into SVF/VME/I2C and the like.
+The UFM content has to come from the build, through the EFB's `UFM_INIT_*`
+parameters:
+
+```verilog
+defparam EFBInst_0.UFM_INIT_FILE_FORMAT = "HEX" ;
+defparam EFBInst_0.UFM_INIT_FILE_NAME   = "ufm_test_record.mem" ;
+defparam EFBInst_0.UFM_INIT_ALL_ZEROS   = "DISABLED" ;
+defparam EFBInst_0.UFM_INIT_START_PAGE  = 0 ;
+defparam EFBInst_0.UFM_INIT_PAGES       = 2 ;
+```
+
+Build with those set and bitgen reports `Initialized UFM Pages: 2 Pages (Page 0
+to Page 1)` instead of `0 Page`, and the record's bytes appear in the JEDEC fuse
+data in `.mem` row order. Program that JEDEC with the UFM-only operations below:
+the configuration data in it is not used, only the UFM fuses.
+
+Keep these `defparam`s out of the firmware build. A JEDEC carrying both firmware
+and a specific board's calibration is a footgun — if anyone programs it with
+`FLASH Erase,Program,Verify` they get both, including a calibration record that
+may belong to a different unit.
+
+For production, the better path is to skip Diamond per board entirely: `main`
+already exposes the hardened I2C configuration port on `scl_cfg`/`sda_cfg`, so
+the MCU can write the record itself with the same sysCONFIG command set the
+loader uses to read it — `ISC_ENABLE_X` (`0x74 08 00 00`), `LSC_ERASE_TAG`
+(`0xCB`) to erase the UFM sector, `LSC_INIT_ADDR_UFM` (`0x47`), then
+`LSC_PROG_TAG` (`0xC9 00 00 01` plus 16 bytes) per page, finishing with
+`ISC_DISABLE` (`0x26`) and `BYPASS` (`0xFF`).
 
 ## I2C firmware updates and the UFM
 
@@ -151,11 +179,24 @@ since it is not visible from the FPGA side.
 
 ## Programmer operations — this part matters
 
+These are the operation names Diamond actually accepts for `LCMXO2-2000HC`,
+confirmed by running `ddtcmd -oft svf -dev LCMXO2-2000HC -op "<name>"` against
+each candidate and checking which are rejected as `Invalid operation`:
+
 | Operation | Effect |
 | --- | --- |
-| `FLASH UFM Erase,Program,Verify` | writes the calibration record, leaves the firmware alone |
+| `FLASH UFM Erase` | erases the UFM sector only |
+| `FLASH UFM Program,Verify` | writes the calibration record, leaves the firmware alone |
+| `FLASH Verify UFM` | reads back and compares the UFM only |
 | `FLASH CFG Erase,Program,Verify` | **use this for firmware updates** — leaves the calibration record alone |
 | `FLASH Erase,Program,Verify` | erases **both**, wiping the calibration |
+| `FLASH CFG and UFM Erase,Program,Verify` | writes both at once |
+
+To write a record, run `FLASH UFM Erase` then `FLASH UFM Program,Verify`.
+
+Note that `FLASH UFM Erase,Program,Verify` — the name used by MachXO3 and shown
+in some of the Diamond help pages — is **not** valid for this device and is
+rejected outright.
 
 A firmware update done with the plain `FLASH Erase,Program,Verify` operation
 silently destroys the calibration. The board still runs afterwards, on the

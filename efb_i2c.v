@@ -48,10 +48,15 @@ module efb_i2c (wb_clk_i, wb_rst_i, wb_cyc_i, wb_stb_i, wb_we_i,
     BB BB1_scl (.I(i2c1_sclo), .T(i2c1_scloen), .O(i2c1_scli), .B(i2c1_scl));
 
     defparam EFBInst_0.UFM_INIT_FILE_FORMAT = "HEX" ;
-    defparam EFBInst_0.UFM_INIT_FILE_NAME = "NONE" ;
-    defparam EFBInst_0.UFM_INIT_ALL_ZEROS = "ENABLED" ;
+    // ---- BENCH ONLY: embeds a calibration record in the JEDEC so Diamond
+    // Programmer will accept a file this project generated.  Revert these four
+    // lines (NONE / ENABLED / 0 / 0) before building release firmware - a JEDEC
+    // carrying both firmware and one board's calibration is a footgun.
+    // The .mem lives in impl1/, which is where Diamond looks by default.
+    defparam EFBInst_0.UFM_INIT_FILE_NAME = "ufm_test_record.mem" ;
+    defparam EFBInst_0.UFM_INIT_ALL_ZEROS = "DISABLED" ;
     defparam EFBInst_0.UFM_INIT_START_PAGE = 0 ;
-    defparam EFBInst_0.UFM_INIT_PAGES = 0 ;
+    defparam EFBInst_0.UFM_INIT_PAGES = 2 ;
     defparam EFBInst_0.DEV_DENSITY = "2000L" ;
     defparam EFBInst_0.EFB_UFM = "ENABLED" ;
     defparam EFBInst_0.TC_ICAPTURE = "DISABLED" ;
